@@ -1,0 +1,48 @@
+.Ca{
+    width: 1000px;
+    margin-top: 100px;
+    float: left;
+}
+
+
+.card-container{
+    float: left;
+
+    margin:  10px 15px;
+    padding: 25px 20px;
+
+    border: 2px solid #ddd;
+    background-color: #fff;
+
+    border-radius: 20px;
+}
+
+.card-img img{
+    width: 200px;
+    height: 200px;
+
+    border-radius: 10px;
+}
+
+
+/* 카드 내용 태그 마진 초기화 */
+h4, p{
+    margin: 0;
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card-content h4{
+    margin: 5px;
+}
+
+
+@media (max-width:1240px) {
+    .Ca{
+        margin: 100 50%;
+    }
+}

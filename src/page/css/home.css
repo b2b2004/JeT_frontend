@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'WandohopeB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/WandohopeB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin:0;
+    padding:0;
+    position:relative;
+}
+
+.container{
+    margin: 0 auto;
+    width: 100vw;
+}
+
+
+.hero-title{
+    font-family: 'WandohopeB';
+    margin: 40px 0;
+    text-align: center;
+}
+
+.hero-title span{font-size: 2.6rem;}
+.hero-title h1{font-size: 3.6rem;}
+.hero-title p{font-size: 1.6rem;}
+
+
+.hero-btn{
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 40px;
+}
+
+.hero-btn button{
+    width: 200px;
+    height: 40px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+#cat-btn{
+    background-color: skyblue;
+    color:#fff;
+    border: none;
+    border-radius: 25px;
+}
+#map-btn{
+    background-color: #fff;
+    color:skyblue;
+    border: 1px solid skyblue;
+    border-radius: 25px;
+}
+
+
+.h-video{
+    display: flex;
+    justify-content: center;
+}
+
+video{
+    border: 5px solid #ddd;
+    border-radius: 10px;
+}
+
+.c-content{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.c-title,
+.c-card{
+    font-family: 'WandohopeB';
+    margin: 0 40px;
+}
+
+.c-title{flex:2; text-align: center; color:#eee; font-size: 1.4rem;}
+.c-card{flex:3;}
+
+.c-container{
+    position: relative;
+}
+
+.section-bg{
+    margin: 200px 0;
+
+    background-color: #D2E8F7;
+    background-image: url("../../assert/wave.png");
+    background-size: cover;
+    
+
+    height: 650px;
+    width: 100%;
+
+    position: absolute;
+    z-index: -1;
+}
+
+@media (max-width:1240px) {
+    .c-content{
+        flex-direction: column;
+    }
+    .c-title,
+    .c-card{
+        flex:0;
+    }
+
+    .c-title{
+        color: black;
+    }
+
+    .c-card{
+        margin : 0 auto;
+    }
+
+    video{
+        width: 500px;
+    }
+}

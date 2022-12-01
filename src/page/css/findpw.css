@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'WandohopeB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/WandohopeB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.regist-logo{
+    display: flex;
+    justify-content: center;
+
+    margin: 50px 0 30px 0;
+}
+.r-logo{
+    width: 200px;
+}
+
+.regist-wrapper{
+    display: flex;
+    justify-content: center;
+    font-family: 'WandohopeB';
+}
+
+#registForm{
+    width: 350px;
+    margin-top: 32px;
+}
+
+#registForm h2{
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-bottom: 30px;
+}
+
+.input-group label{
+
+    text-align: center;
+
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+.input-group input{
+    height: 20px;
+    font-size: 17px;
+    padding: 10px 30px;
+
+    border: none;
+    border-radius: 25px;
+    background-color: #eee;
+}
+
+.input-group input::placeholder{
+    font-family: 'WandohopeB';
+    font-size: 14px;
+}
+
+.regist-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.regist-btn button{
+    width: 400px;
+    padding: 8px;
+
+    border: 2px solid  skyblue;
+    border-radius: 25px;
+    background-color: #fff;
+    color: skyblue;
+
+    font-family: 'WandohopeB';
+    font-size: 20px;
+}

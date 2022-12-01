@@ -1,0 +1,26 @@
+ul{display: flex;}
+li{list-style: none; margin:0 10px;}
+a {text-decoration: none; color: darkgray;}
+
+
+.Nav{
+    border-bottom: 2px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding : 30px 0;
+}
+
+.nav-Logo{
+    margin-left: 100px;
+}
+.logo{width:100px;}
+
+.nav-login{
+    margin-right: 100px;
+}
+
+.nav-login-status a{
+    margin: 5px;
+    cursor: pointer;
+}
