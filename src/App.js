@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './page/Home'
 import Login from './page/Login'
 import Regist from './page/Regist'
-import Category from './page/cateDetail'
-import Map from './page/mapDetail'
+import Category from './page/CateDetail'
+import Map from './page/MapDetail'
 import Oauth2Login from "./page/Oauth2Login";
 import FindPw from "./page/FindPw";
 

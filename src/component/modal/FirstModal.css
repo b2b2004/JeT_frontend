@@ -1,0 +1,16 @@
+.calendar-container {
+    margin-left: 15%;
+}
+
+.calendar_wrapper {
+    margin-top: 10%;
+}
+
+.arrow-left-title {
+    float:left;
+    cursor: pointer;
+}
+.arrow-right-title {
+    float: right;
+    cursor: pointer;
+}
