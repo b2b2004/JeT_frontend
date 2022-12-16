@@ -1,68 +1,54 @@
 import React from 'react'
+import Carditem from './Carditem'
 import "./card.css"
 
-import cardImg from '../../assert/forest_sa.jpg'
+import travel1 from '../../assert/forest_sa.jpg'
 
-function card() {
+
+
+function Card() {
   return (
-    <div className='Ca'>
-      <div className='card-container'>
-        <div className='card-wrapper'>
-          <div className='card-img'>
-            <img src={cardImg} alt='cardImg'></img>
-          </div>
-          <div className='card-content'>
-            <h4>지역이름</h4>
-            <p>지역설명</p>
-          </div>
-        </div>
-      </div>
-      <div className='card-container'>
-        <div className='card-wrapper'>
-          <div className='card-img'>
-            <img src={cardImg} alt='cardImg'></img>
-          </div>
-          <div className='card-content'>
-            <h4>지역이름</h4>
-            <p>지역설명</p>
-          </div>
-        </div>
-      </div>
-      <div className='card-container'>
-        <div className='card-wrapper'>
-          <div className='card-img'>
-            <img src={cardImg} alt='cardImg'></img>
-          </div>
-          <div className='card-content'>
-            <h4>지역이름</h4>
-            <p>지역설명</p>
-          </div>
-        </div>
-      </div>
-      <div className='card-container'>
-        <div className='card-wrapper'>
-          <div className='card-img'>
-            <img src={cardImg} alt='cardImg'></img>
-          </div>
-          <div className='card-content'>
-            <h4>지역이름</h4>
-            <p>지역설명</p>
-          </div>
-        </div>
-      </div>
-      <div className='card-container'>
-        <div className='card-wrapper'>
-          <div className='card-img'>
-            <img src={cardImg} alt='cardImg'></img>
-          </div>
-          <div className='card-content'>
-            <h4>지역이름</h4>
-            <p>지역설명</p>
-          </div>
+    <div className='cards'>
+      <div className='card_container'>
+        <div className='card_wrapper'>
+          <ul className='card_items'>
+            <Carditem
+            src={travel1}
+            text="Expore the hidden waterfall"
+            label='Adventure'
+            path='/'
+            />
+            <Carditem
+            src={travel1}
+            text="Expore the hidden waterfall"
+            label='Adventure'
+            path='/'
+            />
+            <Carditem
+            src={travel1}
+            text="Expore the hidden waterfall"
+            label='Adventure'
+            path='/'
+            />
+          </ul>
+          <ul className='card_items'>
+            <Carditem
+            src={travel1}
+            text="Expore the hidden waterfall"
+            label='Adventure'
+            path='/'
+            />
+            <Carditem
+            src={travel1}
+            text="Expore the hidden waterfall"
+            label='Adventure'
+            path='/'
+            />
+          </ul>
         </div>
       </div>
     </div>
   )
 }
 
-export default card
+export default Card

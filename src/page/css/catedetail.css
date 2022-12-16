@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'WandohopeB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/WandohopeB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Humanbumsuk';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Humanbumsuk';
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.cate-hero{
+    background-color: #cce8f4;
+}
+
+.cate-hero-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 3rem calc((100vw - 1300px) / 2);
+}
+.cate-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 5rem;
+}
+
+
+.column-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0rem 2rem;
+}
+
+.column-left h1{
+    margin-bottom: 1rem;
+    font-size: 3rem;
+}
+
+.column-left p {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.rec-btn{
+    background-color: black;
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.rec-btn:hover{
+    background-color: #fff;
+    color: black;
+
+}
+
+.cate-hero-img{
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1200px){
+    .cate-hero-container{
+        grid-template-columns: 1fr;
+    }
+    .cate-hero-img{
+        height: 70%;
+    }
+    .cate-hero{
+        height: 70vh;
+    }
+}

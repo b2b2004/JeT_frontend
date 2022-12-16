@@ -5,6 +5,10 @@ import {setModalVisible} from "../store/RecommendCourseStep";
 import Modal from "../component/modal/Modal";
 import CourseModal from "../component/modal/CourseModal";
 
+import Card from "../component/card/Card"
+import hreoBg from "../assert/travel_bgr.png"
+import './css/catedetail.css';
+
 function CateDetail() {
     const dispatch = useDispatch();
     const modalVisible = useSelector((state) => state.RecommendCourseStep.modalVisible);
@@ -46,11 +50,28 @@ function CateDetail() {
   return (
     <div>
         <Navbar/>
-        여기는 카테고리별 디테일 페이지
+        <h1>Category Detail Page</h1>
+        <div className='cate-hero'>
+            <div className='cate-hero-container'>
+                <div className='column-left'>
+                    <h1>원하는 코스를 추천 받아 보세요!</h1>
+                    <p>알랄라라라라라랄라ㅏ</p>
+                    <button className='rec-btn' onClick={openModal}>
+                        코스 추천 받기
+                    </button>
+                </div>
+                <div className='column-right'>
+                    <img src={hreoBg} alt='bg'
+                    className='cate-hero-img'></img>
+                </div>
+            </div>
+        </div>
+        <div className='cate-section'>
+            <h1>제주도에는 이런 여행지가 있습니다</h1>
+            <p>지도 모형 넣기</p>
+            <Card/>
+        </div>
 
-        <button onClick={openModal}>
-            코스 추천 받기
-        </button>
         <Modal visible={modalVisible} name="RecommendCourse" onClose={closeModal}>
             <CourseModal handleClose={closeModal} tabIndex={0}></CourseModal>
         </Modal>
