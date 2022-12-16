@@ -42,6 +42,7 @@ const FirstModal = ({handleClose}) =>{
                     className="arrow-right-title"
                     src="/images/arrow-right.png"
                     onClick={nexthandleStep}
+                    alt="arrow"
                 />
             </footer>
         </>
