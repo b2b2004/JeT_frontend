@@ -11,9 +11,37 @@
     position:relative;
 }
 
-.container{
-    margin: 0 auto;
+.hero{
+    height: 100vh;
     width: 100vw;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero .head {
+    text-align: center;
+    width: 60%;
+
+    color: white;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.hero video{
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+
+    overflow: hidden;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -24,25 +52,28 @@
 }
 
 .hero-title span{font-size: 2.6rem;}
-.hero-title h1{font-size: 3.6rem;}
-.hero-title p{font-size: 1.6rem;}
+.hero-title h1{font-size: 4.6rem;}
+.hero-title p{font-size: 2.6rem;}
 
 
 .hero-btn{
     display: flex;
     justify-content: center;
 
-    margin-bottom: 40px;
+    padding: 40px 0;
 }
 
 .hero-btn button{
+    font-family: 'WandohopeB';
+    font-size: 1.3rem;
+
     width: 200px;
-    height: 40px;
-    margin: 0 10px;
+    height: 45px;
+    margin: 0 30px;
     cursor: pointer;
 }
 
-#cat-btn{
+#cate-btn{
     background-color: skyblue;
     color:#fff;
     border: none;
@@ -53,71 +84,4 @@
     color:skyblue;
     border: 1px solid skyblue;
     border-radius: 25px;
-}
-
-
-.h-video{
-    display: flex;
-    justify-content: center;
-}
-
-video{
-    border: 5px solid #ddd;
-    border-radius: 10px;
-}
-
-.c-content{
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-}
-
-.c-title,
-.c-card{
-    font-family: 'WandohopeB';
-    margin: 0 40px;
-}
-
-.c-title{flex:2; text-align: center; color:#eee; font-size: 1.4rem;}
-.c-card{flex:3;}
-
-.c-container{
-    position: relative;
-}
-
-.section-bg{
-    margin: 200px 0;
-
-    background-color: #D2E8F7;
-    background-image: url("../../assert/wave.png");
-    background-size: cover;
-    
-
-    height: 650px;
-    width: 100%;
-
-    position: absolute;
-    z-index: -1;
-}
-
-@media (max-width:1240px) {
-    .c-content{
-        flex-direction: column;
-    }
-    .c-title,
-    .c-card{
-        flex:0;
-    }
-
-    .c-title{
-        color: black;
-    }
-
-    .c-card{
-        margin : 0 auto;
-    }
-
-    video{
-        width: 500px;
-    }
 }
