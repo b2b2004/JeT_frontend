@@ -84,7 +84,6 @@ function Login() {
                   <button>로그인</button>
                 </div>
                 <hr/>
-              </form>
                 <div className='social-btn'>
                     <button className='ka-btn' name="kakao" onClick={Oauth2Login}>
                         <img className='ka-logo' src={kakao} alt="k-logo"/>
@@ -95,6 +94,7 @@ function Login() {
                         NAVER
                     </button>
                 </div>
+              </form>
             </div>
         </div>
     </div>
