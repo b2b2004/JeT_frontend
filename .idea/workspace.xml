@@ -6,15 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="81d3af69-f390-453f-a49c-8006fd34595d" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/CateDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CateDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/MapDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/MapDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/css/catedetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/catedetail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/css/findpw.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/findpw.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/css/mapdetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/mapdetail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/css/regist.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/regist.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/SecondModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/SecondModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +78,8 @@
       <workItem from="1671005042758" duration="1220000" />
       <workItem from="1671063339531" duration="2340000" />
       <workItem from="1671149564346" duration="9872000" />
-      <workItem from="1671165981900" duration="9806000" />
+      <workItem from="1671165981900" duration="9947000" />
+      <workItem from="1671236419715" duration="3755000" />
     </task>
     <servers />
   </component>
