@@ -9,6 +9,7 @@ import Card from "../component/card/Card"
 import hreoBg from "../assert/travel_bgr.png"
 import './css/catedetail.css';
 import Carditem from "../component/card/Carditem";
+import { Link } from 'react-router-dom';
 
 function CateDetail() {
     const dispatch = useDispatch();
@@ -91,6 +92,7 @@ function CateDetail() {
             </div>
         </div>
         <div className='cate-section'>
+            <Link to="/Mypage"><button>asdfasf</button></Link>
             <h1>제주도에는 이런 여행지가 있습니다</h1>
             <p>지도 모형 넣기</p>
             <div className='cards'>
