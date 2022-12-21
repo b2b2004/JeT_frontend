@@ -3,10 +3,39 @@ import Navbar from '../component/nav/Navbar.js'
 
 
 function Mypage() {
+    const Authorization = localStorage.getItem("Authorization");
+
+    const deleteId = () =>{
+        let result = confirm("정말 삭제하시겠습니까?");
+
+        if(result)
+        {
+            fetch("http://localhost:8087/user/deleteId",
+                {
+                    method: "GET",
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8', Authorization
+                    },
+                })
+                .then((res)=> res.text())
+                .then((res) =>{
+                    alert(res);
+                    window.location.href = "/";
+                })
+        }
+    }
+
+
   return (
       <div>
         <Navbar/>
         <div>
+
+            <button onClick={deleteId}>탈퇴하기</button>
+            <button>개인정보 수정</button>
+            <button>비밀번호 수정</button>
+            <button>성향정보 수정</button>
+
         <h2>마이페이지</h2>
             <div className='user_info'>
                 <form>

@@ -35,6 +35,10 @@ function Navbar() {
         alert("로그아웃 되었습니다.");
         window.location.href = "/";
     }
+
+    const Mypage = () =>{
+        window.location.href = "/Mypage";
+    }
   return (
     <div className='Nav'>
         <div className='nav-Logo'>
@@ -52,7 +56,7 @@ function Navbar() {
                 </Link>
                 :
                 <div className="nav-login-status">
-                <a>{user.username}({user.userId})</a>
+                <a onClick={Mypage}>{user.username}({user.userId})</a>
                 <a onClick={Logout}>Logout</a>
                 </div>
             }
