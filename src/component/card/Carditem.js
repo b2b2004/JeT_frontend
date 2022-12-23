@@ -53,13 +53,15 @@ function Carditem(props) {
   return (
     <>
       <li className='card_item'>
-          {Authorization !== null ? ( likeplace === false ? <p onClick={user_like_place}>♡</p> :<p onClick={user_like_place}>♥</p>) :<></> }
         <Link className='card_item_link' to={props.path}>
             <figure className='card_item_pic-wrap' data-category={props.label}>
                 <img className='card_item_img' alt='Travel Img'
                 src={props.src}/>
             </figure>
             <div className='card_item_info'>
+                <div className='like_place'>
+                {Authorization !== null ? ( likeplace === false ? <p onClick={user_like_place}>♡</p> :<p onClick={user_like_place}>♥</p>) :<></> }
+                </div>
                 <h5 className='card_item_text'>{place}</h5>
             </div>
         </Link>

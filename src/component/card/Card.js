@@ -10,7 +10,6 @@ function Card(props) {
             <Carditem
             src={img}
             text={props.jejuData.name}
-            label='Adventure'
             path='/'
             />
       </ul>
