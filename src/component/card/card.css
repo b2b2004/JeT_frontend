@@ -29,22 +29,6 @@
     animation-duration: 2s;
 }
 
-.card_item_pic-wrap::after{
-    content: attr(data-category);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-left: 10px;
-    padding: 6px 8px;
-    max-width: calc((100%) - 60px);
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    background-color: #a9dcbc;
-    box-sizing: border-box;
-    border-radius: 16px 0 0 0 ;
-}
-
 .card_item_img{
     position: absolute;
     top: 0;
@@ -65,7 +49,7 @@
 }
 
 .card_item_info{
-    padding: 20px 30px 30px;
+    padding: 10px 20px 30px;
     white-space: pre-line;
     word-break: break-all;
 }
@@ -75,4 +59,9 @@
     font-size: 17px;
     line-height: 24px;
     width: 270px;
+}
+
+.like_place{
+    display: flex;
+    justify-content: flex-end;
 }

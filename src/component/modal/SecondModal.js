@@ -4,6 +4,8 @@ import {nextStep, previousStep, set_duration_end, set_duration_start} from "../.
 import {useDispatch} from "react-redux";
 import Select from "react-select";
 
+import "./SecondModal.css";
+
 const SecondModal = ({handleClose}) =>{
     const dispatch = useDispatch();
     const Checkbox = new Set();
@@ -48,28 +50,35 @@ const SecondModal = ({handleClose}) =>{
     return  (
         <>
             <h1>키워드를 선택해주세요</h1>
-            <Select
-                isMulti
-                name="area"
-                onChange={changeSelect}
-                className="languages"
-                options={options}
-                placeholder="기술을 선택해주세요."
-            />
-
-            <footer className="modal_footer">
+            <div className="app">
+            <div className="secondModal-left-arrow">
                 <img
                     className="arrow-left-title"
                     src="/images/arrow-left.png"
                     onClick={backhandleStep}
                 />
+            </div>
+            <div className="secondModal- container">
+                <Select
+                    isMulti
+                    name="area"
+                    onChange={changeSelect}
+                    className="languages"
+                    options={options}
+                    placeholder="기술을 선택해주세요."
+                    
+                />
+            </div>
+            
 
+            <div className="secondModal-right-arrow">
                 <img
                     className="arrow-right-title"
                     src="/images/arrow-right.png"
                     onClick={nexthandleStep}
                 />
-            </footer>
+            </div>
+            </div>
         </>
     );
 }
