@@ -64,4 +64,5 @@
 .like_place{
     display: flex;
     justify-content: flex-end;
+    cursor: pointer;
 }

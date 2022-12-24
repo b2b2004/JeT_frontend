@@ -1,0 +1,173 @@
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+.fix{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    background-color: #fff;
+}
+
+.section{
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-containers{
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.section-form{
+    width: 1200px;
+    height: 800px;
+}
+
+.section-title{
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.section-container{
+    height: 600px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.mypage-input{
+    display: flex;
+    margin: 9px 0;
+    width: 300px;
+}
+
+.mypage-input label{
+    font-size: 0.9rem;
+    padding:0 8px;
+    text-align: center;
+    flex: 1;
+}
+.mypage-input input{
+    border: none;
+    border-bottom: 1.3px solid #cecece;
+    flex: 2;
+}
+
+.s1-1, 
+.s1-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.basic-info,
+.personal-info{
+    height: 100vh;
+    width: 400px;
+
+    padding: 60px 0;
+
+    border-radius: 9px;
+    box-shadow: 5px 3px 3px #cecece;
+}
+
+.basic-info h3, 
+.personal-info h3{
+    font-size: 1.4rem;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.info-change, .pass-change, .pesonal-change{
+    padding: 25px 10px;
+    width: 400px;
+
+    border-radius: 9px;
+    box-shadow: 5px 3px 3px #cecece;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-change .mypage-input, 
+.pass-change .mypage-input{
+    flex-direction: column;
+    padding: 18px 0;
+}
+
+.info-change .mypage-input label, 
+.pass-change .mypage-input label{
+    margin-bottom: 14px;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+}
+
+.change-btn{
+    width: 250px;
+    height: 34px;
+    border: none;
+    border-radius: 7px;
+    color: gold;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: black;
+
+    margin-top: 20px;
+}
+
+.change-btn:hover{
+    color: black;
+    background-color: gold;
+}
+
+.scroll_top_btn{
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+    width: 50px;
+    height: 50px;
+    background-color: #919ea4;
+}
+
+
+.scroll_btns{
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.scroll_btns a{
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
