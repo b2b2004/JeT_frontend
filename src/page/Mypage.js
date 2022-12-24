@@ -30,13 +30,14 @@ function Mypage() {
       <div>
         <Navbar/>
         <div>
-
-            <button onClick={deleteId}>탈퇴하기</button>
-            <button>개인정보 수정</button>
-            <button>비밀번호 수정</button>
-            <button>성향정보 수정</button>
-
         <h2>마이페이지</h2>
+            <div className='myPage_menu_btn'>
+                <button>개인정보 수정</button>
+                <button>비밀번호 수정</button>
+                <button>성향정보 수정</button>
+                <button onClick={deleteId}>탈퇴하기</button>
+            </div>
+
             <div className='user_info'>
                 <form>
                 <h2>회원 정보</h2>
@@ -50,7 +51,7 @@ function Mypage() {
                     </div>
                     <div>
                         <label>이메일</label>
-                        <input type="text"></input>
+                        <input type="email"></input>
                     </div>
                     <div><button>회원 정보 변경</button></div>
                 </form>
