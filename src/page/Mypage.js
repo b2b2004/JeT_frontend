@@ -4,6 +4,7 @@ import { BiChevronsUp , BiChevronsRight} from "react-icons/bi";
 
 import './css/mypage.css'
 
+
 function Mypage() {
   return (
     <>
@@ -156,7 +157,6 @@ function Mypage() {
                     </div>
                     <div className='section-container'>
                         <div className='pesonal-change'>
-                            여기 성향 나오면 추가
                         </div>
                         
                     </div>

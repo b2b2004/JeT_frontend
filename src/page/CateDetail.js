@@ -77,7 +77,9 @@ function CateDetail() {
             </div>
         </div>
         <div className='cate-section'>
+            <Link to="/Mypage"><button>asdfasf</button></Link>
             <h1>제주도에는 이런 여행지가 있습니다</h1>
+            <p>지도 모형 넣기</p>
             <div className='cards'>
                             {jejuData.map((jejuData) => (
                                 <Card key={jejuData.JejuDataNo} jejuData={jejuData} />
