@@ -1,7 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-
-
 import Home from './page/Home'
 import Login from './page/Login'
 import Regist from './page/Regist'
@@ -10,6 +7,7 @@ import Map from './page/MapDetail'
 import Oauth2Login from "./page/Oauth2Login";
 import FindPw from "./page/FindPw";
 import MyPage from "./page/Mypage";
+import JeJuPlace from "./page/JeJuPlace";
 
 function App() {
   return (
@@ -24,6 +22,7 @@ function App() {
           <Route path='/Oauth2Login/:token' element={<Oauth2Login/>}/>
           <Route path="/FindPw" element={<FindPw/>}/>
           <Route path="/Mypage" element={<MyPage/>}/>
+          <Route path="/Jejuplace/:num" element={<JeJuPlace/>}/>
         </Routes>
       </Router>
     </>
