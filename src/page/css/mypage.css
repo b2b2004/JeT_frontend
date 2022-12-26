@@ -47,6 +47,7 @@ html{
     margin-top: 25px;
     display: flex;
     justify-content: center;
+
 }
 
 .mypage-input{
@@ -80,9 +81,9 @@ html{
 .personal-info{
     height: 100vh;
     width: 400px;
-
     padding: 60px 0;
 
+    background-color: #fff;
     border-radius: 9px;
     box-shadow: 5px 3px 3px #cecece;
 }
@@ -99,6 +100,7 @@ html{
     padding: 25px 10px;
     width: 400px;
 
+    background-color: #fff;
     border-radius: 9px;
     box-shadow: 5px 3px 3px #cecece;
 
