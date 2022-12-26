@@ -39,6 +39,7 @@ function Navbar() {
     const Mypage = () =>{
         window.location.href = "/Mypage";
     }
+
   return (
     <div className='Nav'>
         <div className='nav-Logo'>
@@ -47,13 +48,12 @@ function Navbar() {
             </Link>
         </div>
 
-
         <div className='nav-login'>
             {user.userId == null
                 ?
-                <Link to='login'>
+                <a onClick={()=>{window.location.href = "/login";}}>
                     <FiLogIn size='24'/>
-                </Link>
+                </a>
                 :
                 <div className="nav-login-status">
                 <a onClick={Mypage}>{user.username}({user.userId})</a>

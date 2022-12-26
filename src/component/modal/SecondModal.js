@@ -1,29 +1,19 @@
-import Calendar from "react-calendar";
-import moment from "moment";
-import {nextStep, previousStep, set_duration_end, set_duration_start} from "../../store/RecommendCourseStep";
+import {
+    nextStep,
+    previousStep,
+    set_keyword
+} from "../../store/RecommendCourseStep";
 import {useDispatch} from "react-redux";
 import Select from "react-select";
-
 import "./SecondModal.css";
+import {useState} from "react";
 
 const SecondModal = ({handleClose}) =>{
     const dispatch = useDispatch();
-    const Checkbox = new Set();
-
-    const changeSelect = (e) => {
-        let length = e.length;
-
-        if(Checkbox.has(e[length-1].value) === false){
-            Checkbox.add(e[length-1].value);
-        }else if (Checkbox.has(e[length-1].value) === true)
-        {
-            Checkbox.delete(e[length-1].value);
-        }
-
-        const test = [...Checkbox];
-        const techStack = test.join(',');
-       // dispatch(setTechStack(techStack));
-    }
+    const [val,setVal] = useState([]);
+    const [keyword,setKeyword] = useState([]);
+    let a = [];
+    const [vallength,setVallength] = useState();
 
     const options = [
         {id:1, value: "가", label: "가"},
@@ -38,9 +28,20 @@ const SecondModal = ({handleClose}) =>{
         {id:10, value: "차", label: "차"},
         {id:11, value: "카", label: "카"},
         {id:12, value: "타", label: "타"},
-    ]
+    ];
+
+    const changeSelect = (e) => {
+        setVallength(e.length);
+        setVal({...e});
+    }
 
     const nexthandleStep = async () => {
+        for(let i=0;i<vallength;i++)
+        {
+            keyword.push(val[i].value);
+        }
+        console.log(keyword);
+        dispatch(set_keyword(keyword));
         dispatch(nextStep());
     };
     const backhandleStep = async () => {
@@ -69,7 +70,6 @@ const SecondModal = ({handleClose}) =>{
                     
                 />
             </div>
-            
 
             <div className="secondModal-right-arrow">
                 <img

@@ -9,9 +9,6 @@ const ThirdModal = ({handleClose}) =>{
     const dispatch = useDispatch();
     const [jejuData, setJejuData] = useState([]);
     let [pageNo,setPageNo] = useState(6);
-    const nexthandleStep = async () => {
-        dispatch(nextStep());
-    };
     const backhandleStep = async () => {
         dispatch(previousStep());
     };
@@ -27,7 +24,6 @@ const ThirdModal = ({handleClose}) =>{
             })
             .then((res)=> res.json())
             .then((res) =>{
-                console.log(res);
                 setJejuData(res);
             })
     },[])

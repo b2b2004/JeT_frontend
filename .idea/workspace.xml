@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="81d3af69-f390-453f-a49c-8006fd34595d" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/Carditem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Carditem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/FirstModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/FirstModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/SecondModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/SecondModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/nav/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/nav/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Mypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/CateDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CateDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/css/catedetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/catedetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/RecommendCourseStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/RecommendCourseStep.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +85,11 @@
       <workItem from="1671236419715" duration="3755000" />
       <workItem from="1671432122174" duration="1525000" />
       <workItem from="1671496269093" duration="17595000" />
-      <workItem from="1671583564733" duration="308000" />
+      <workItem from="1671583564733" duration="1635000" />
+      <workItem from="1671669806692" duration="639000" />
+      <workItem from="1671760307676" duration="1908000" />
+      <workItem from="1671838620040" duration="12644000" />
+      <workItem from="1671873579211" duration="207000" />
     </task>
     <servers />
   </component>

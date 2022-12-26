@@ -65,7 +65,6 @@ function CateDetail() {
             <div className='cate-hero-container'>
                 <div className='column-left'>
                     <h1>원하는 코스를 추천 받아 보세요!</h1>
-                    <p>알랄라라라라라랄라ㅏ</p>
                     <button className='rec-btn' onClick={openModal}>
                         코스 추천 받기
                     </button>
@@ -77,9 +76,7 @@ function CateDetail() {
             </div>
         </div>
         <div className='cate-section'>
-            <Link to="/Mypage"><button>asdfasf</button></Link>
             <h1>제주도에는 이런 여행지가 있습니다</h1>
-            <p>지도 모형 넣기</p>
             <div className='cards'>
                             {jejuData.map((jejuData) => (
                                 <Card key={jejuData.JejuDataNo} jejuData={jejuData} />
