@@ -59,7 +59,7 @@ const SecondModal = ({handleClose}) =>{
                     onClick={backhandleStep}
                 />
             </div>
-            <div className="secondModal- container">
+            <div className="secondModal-container">
                 <Select
                     isMulti
                     name="area"

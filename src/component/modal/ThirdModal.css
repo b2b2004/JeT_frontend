@@ -1,0 +1,61 @@
+.modal-likePlace-btn{
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+
+    position: fixed;
+    top: 55px;
+    right: 10px;
+}
+
+.modal-likePlace-btn button{
+    padding: 5px 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+    margin-right: 10px;
+    background-color: black;
+    color: gold;
+}
+.modal-likePlace-btn button:hover{
+    background-color: gold;
+    color: black;
+
+}
+
+.complete-btn{
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+
+    position: fixed;
+    bottom: 25px;
+    right: 10px;
+}
+
+.complete-btn button{
+    padding: 7px 70px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+    margin-right: 10px;
+
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #bdbdbd;
+    color: #2c2c2c;
+}
+
+.complete-btn button:hover{
+    background-color: gold;
+    color: black;
+}
+
+.thirdModal-right-arrow img{
+    opacity: 0;
+    cursor: default;
+}
