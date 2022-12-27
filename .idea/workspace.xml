@@ -6,16 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="81d3af69-f390-453f-a49c-8006fd34595d" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/Carditem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Carditem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/nav/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/nav/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Mypage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/css/catedetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/catedetail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/mypage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/footer/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/footer/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/CateDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CateDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/JeJuPlace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/JeJuPlace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/css/jejuplace.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/jejuplace.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -96,7 +90,8 @@
       <workItem from="1671760307676" duration="1908000" />
       <workItem from="1671838620040" duration="12644000" />
       <workItem from="1671873579211" duration="207000" />
-      <workItem from="1672012784170" duration="25759000" />
+      <workItem from="1672012784170" duration="26007000" />
+      <workItem from="1672099278894" duration="11758000" />
     </task>
     <servers />
   </component>

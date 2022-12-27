@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import PlaceReview from "../component/jejuplace/PlaceReview";
 
 function JeJuPlace(){
     const params  = useParams();
@@ -12,6 +13,10 @@ function JeJuPlace(){
     const [Img_url,setImg_url] = useState([]);
     const Authorization = localStorage.getItem("Authorization");
     const [likeplace, setLikeplace] = useState(false);
+    const [review, setReview] = useState({
+        num: params.num,
+        content: "",
+    });
 
     useEffect(()=>{
         fetch("http://localhost:8087/board/JejuPlace/" + params.num,
@@ -54,22 +59,22 @@ function JeJuPlace(){
                         }
                     }
                 })
-
-            // kakao map
-            const mapContainer = document.getElementById('map'), // 지도를 표시할 div
-                mapOption = {
-                    center: new kakao.maps.LatLng(jejuData.latitude, jejuData.longitude), // 지도의 중심좌표
-                    level: 3 // 지도의 확대 레벨
-                };
-            const map = new kakao.maps.Map(mapContainer, mapOption);
-            // 마커가 표시될 위치입니다
-            const markerPosition = new kakao.maps.LatLng(jejuData.latitude, jejuData.longitude);
-            // 마커를 생성합니다
-            const marker = new kakao.maps.Marker({
-                position: markerPosition
-            });
-            marker.setMap(map);
         }
+
+        // kakao map
+        const mapContainer = document.getElementById('map'), // 지도를 표시할 div
+            mapOption = {
+                center: new kakao.maps.LatLng(jejuData.latitude, jejuData.longitude), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+        const map = new kakao.maps.Map(mapContainer, mapOption);
+        // 마커가 표시될 위치입니다
+        const markerPosition = new kakao.maps.LatLng(jejuData.latitude, jejuData.longitude);
+        // 마커를 생성합니다
+        const marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+        marker.setMap(map);
     },[jejuData])
 
     const user_like_place = () =>{
@@ -93,6 +98,28 @@ function JeJuPlace(){
             })
     }
 
+    const chageValue = (e) =>{
+        setReview({
+            ...review,
+            [e.target.name]: e.target.value,
+        });
+
+    }
+
+    const sendReview = () =>{
+        fetch("http://localhost:8087/board/JejuPlace/review",
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8', Authorization
+                },
+                body: review
+            })
+            .then((res)=> res.json())
+            .then((res) =>{
+            })
+    }
+
     // slider 설정
     const settings = {
         dots: true,
@@ -102,7 +129,7 @@ function JeJuPlace(){
         slidesToScroll: 1,
         autoplay: true,
         speed: 500,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 3000,
         cssEase: "linear",
     };
 
@@ -145,8 +172,8 @@ function JeJuPlace(){
                         <li className="select_tab" id="recomTab"><a href="javascript:tabChange('relationGo');"><span>댓글</span></a></li>
                     </ul>
                 </div>
-                    <div id="detailGo">
 
+                    <div id="detailGo">
 
                         <div className="wrap_imgSlide">
                         <Slider {...settings}>
@@ -172,8 +199,6 @@ function JeJuPlace(){
                                 <div id="map"></div>
                             </div>
 
-
-
                             <div className="wrap_contView" id="detailinfoview">
                                 <div className="area_txtView bottom">
                                     {/* style="padding-bottom: 54px;" */}
@@ -193,12 +218,31 @@ function JeJuPlace(){
                                             </ul>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+
+                        <h2 className="reviewSpan"> 댓글 </h2>
+                        <div id="review">
+                                {Authorization === null ?
+                                    <>
+                                    <textarea placeholder="로그인 시 댓글 등록이 가능합니다."></textarea>
+                                    <button className="btn1" onClick={()=>{window.location.href = "/login";}}>로그인</button>
+                                    </>
+                                    :
+                                    <>
+                                    <textarea placeholder="최대 1000자 까지 입력 가능합니다." name="content" onChange={chageValue}></textarea>
+                                    <button className="btn1" onClick={sendReview}>등록</button>
+                                    </>
+                                }
+                        </div>
+                        <div id="reviewlist">
+                            <ul>
+                                <PlaceReview />
+                            </ul>
+                        </div>
+                    </div>
             </div>
         </div>
     </>
