@@ -7,6 +7,7 @@ import Map from './page/MapDetail'
 import Oauth2Login from "./page/Oauth2Login";
 import FindPw from "./page/FindPw";
 import MyPage from "./page/Mypage";
+import Course from "./page/CourseRec"
 import JeJuPlace from "./page/JeJuPlace";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path='/Oauth2Login/:token' element={<Oauth2Login/>}/>
           <Route path="/FindPw" element={<FindPw/>}/>
           <Route path="/Mypage" element={<MyPage/>}/>
+          <Route path="/Course" element={<Course/>}/>
           <Route path="/Jejuplace/:num" element={<JeJuPlace/>}/>
         </Routes>
       </Router>

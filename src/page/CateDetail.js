@@ -76,7 +76,8 @@ function CateDetail() {
             </div>
         </div>
         <div className='cate-section'>
-            <Link to="/Mypage"><button>asdfasf</button></Link>
+            <Link to="/Mypage"><button>마이페이지(예비)</button></Link>
+            <Link to="/Course"><button>코스(예비)</button></Link>
             <h1>제주도에는 이런 여행지가 있습니다</h1>
             <p>지도 모형 넣기</p>
             <div className='cards'>
