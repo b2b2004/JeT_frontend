@@ -65,7 +65,6 @@ function CateDetail() {
             <div className='cate-hero-container'>
                 <div className='column-left'>
                     <h1>원하는 코스를 추천 받아 보세요!</h1>
-                    <p>알랄라라라라라랄라ㅏ</p>
                     <button className='rec-btn' onClick={openModal}>
                         코스 추천 받기
                     </button>

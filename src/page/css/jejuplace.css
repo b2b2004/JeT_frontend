@@ -1,0 +1,160 @@
+div {
+    box-sizing: border-box;
+}
+
+#contents {
+    width: 980px;
+    margin: 0 auto;
+    padding: 0 20px 27px 20px;
+}
+
+.titleType1 {
+    text-align: center;
+    position: relative;
+}
+
+.titleType1 h2 {
+    padding: 19px 0 0;
+    text-align: center;
+    margin: 0;
+}
+
+.tit_cont h2, .titleType1 h2 {
+    overflow: hidden;
+    font-weight: 800;
+    color: #333;
+    font-size: 36px;
+    letter-spacing: -1px;
+    word-break: keep-all;
+}
+
+.titleType1 .area_address {
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.titleType1 .titTypeWrap h3 {
+    padding: 25px 0 0;
+    font-weight: 700;
+    word-break: keep-all;
+    font-size: 28px;
+    color: #333;
+    letter-spacing: -1px;
+}
+
+.dbDetail.titBg h3 em {
+    padding: 0 15px;
+    font-weight: 700;
+    box-shadow: inset 0 -12px 0 rgb(255 223 223);
+}
+
+
+.titleType1 .post_area {
+    position: relative;
+    top: 0;
+    margin: 35px 0 18px;
+}
+
+
+.wrap_imgSlide img{
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    height: 500px;
+}
+
+.post_area {
+    position: absolute;
+    right: 0;
+    top: 11px;
+    z-index: 100;
+}
+
+.post_area ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post_area ul div{
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.post_area ul li a{
+    margin-left: 8px;
+}
+
+
+.detail_tab {
+    padding: 0 0 20px;
+    overflow: hidden;
+    top: 0;
+    transition: top .5s ease-in-out;
+}
+
+.detail_tab ul li {
+    float: left;
+    width: 33%;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.detail_tab ul li.on a {
+    font-weight: 800;
+    color: #333;
+}
+
+.detail_tab ul li a {
+    position: relative;
+    display: block;
+    line-height: 63px;
+    font-size: 18px;
+    color: #666;
+    letter-spacing: -1px;
+}
+
+.detail_tab ul li a span {
+    display: inline-block;
+    padding: 0 30px;
+    position: relative;
+}
+
+.db_cont_detail .area_txtView.top {
+    padding-top: 15px;
+}
+
+.db_cont_detail .wrap_contView h3 {
+    padding: 16px 0 6px;
+    font-size: 16px;
+}
+
+.db_cont_detail .wrap_contView h3 {
+    width: 100%;
+    padding: 31px 0 9px;
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 2px solid #333;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #333;
+}
+
+.surroundingsMap {
+    padding: 0 0 30px;
+}
+
+.wrap_contView .area_txtView.top{padding-bottom:50px;}
+.wrap_contView .area_txtView .inr ul{height:100%; display: block;}
+.db_cont_detail .wrap_contView .area_txtView ul li{float:left;width:50%;padding:0 0 9px 0;display:table;font-size:15px;font-weight:400;background:none !important;}
+.db_cont_detail .wrap_contView .area_txtView ul li strong{float:none;margin-right:0;position:relative;display:table-cell;width:128px;padding:0 0 0 12px;font-weight:700;color:#333;}
+.db_cont_detail .wrap_contView .area_txtView ul li strong:before{content:'';display:inline-block;width:3px;height:3px;background:#0b0b0b;border-radius:100%;position:absolute;left:0;top:9px;}
+.db_cont_detail .wrap_contView .area_txtView ul li span{float:none;width:auto;display:table-cell;color:#666;padding-right: 20px;line-height: 1.4;}
+.db_cont_detail .wrap_contView .area_txtView ul li span.mo{display: none;}
+.db_cont_detail .wrap_contView .area_txtView ul li span a{word-break:break-all;}
+
+
+#map{
+    width: 100%;
+    height: 350px;
+}

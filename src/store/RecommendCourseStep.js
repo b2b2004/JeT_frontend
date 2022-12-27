@@ -1,18 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-/*
-loginStep
-login을 위한 modal visibility와
-loginStep(social login, signUp)을 관리하는 redux 입니다.
-*/
 
 const initialState = {
     modalVisible: false,
     currentStep: 1,
+    date_start: undefined,
+    date_end: undefined,
     duration_start: undefined,
     duration_end: undefined,
-    area: undefined,
-    keyword: undefined,
+    area: [],
+    keyword: [],
     recImage: undefined,
     tendency: undefined,
 };
@@ -42,7 +39,18 @@ const RecommendCourseStepSlice = createSlice({
             ...state,
             modalVisible: action.payload,
         }),
-
+        set_Area: (state, action) => ({
+            ...state,
+            area: action.payload,
+        }),
+        set_date_start: (state, action) => ({
+            ...state,
+            date_start: action.payload,
+        }),
+        set_date_end: (state, action) => ({
+            ...state,
+            date_end: action.payload,
+        }),
         set_duration_start: (state, action) => ({
             ...state,
             duration_start: action.payload,
@@ -51,21 +59,13 @@ const RecommendCourseStepSlice = createSlice({
             ...state,
             duration_end: action.payload,
         }),
-        setArea: (state, action) => ({
-            ...state,
-            area: action.payload,
-        }),
-        setkeyword: (state, action) => ({
+        set_keyword: (state, action) => ({
             ...state,
             keyword: action.payload,
         }),
-        setrecImage: (state, action) => ({
+        set_recImage: (state, action) => ({
             ...state,
             recImage: action.payload,
-        }),
-        settendency: (state, action) => ({
-            ...state,
-            tendency: action.payload,
         }),
     },
 });
@@ -77,11 +77,12 @@ export const {
     setModalVisible,
     doubleStep,
     doublepreviousStep,
+    set_date_start,
+    set_date_end,
     set_duration_start,
     set_duration_end,
-    setArea,
-    setkeyword,
-    setrecImage,
-    settendency
+    set_Area,
+    set_keyword,
+    set_recImage
 } = RecommendCourseStepSlice.actions;
 export default RecommendCourseStepSlice.reducer;

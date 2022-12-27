@@ -6,7 +6,6 @@ function Carditem(props) {
     const Authorization = localStorage.getItem("Authorization");
     const [likeplace, setLikeplace] = useState(false);
 
-
     const user_like_place = () =>{
         if(likeplace === true)
         {
@@ -54,15 +53,15 @@ function Carditem(props) {
     <>
       <li className='card_item'>
         <div className='card_item_link'>
-            <Link to={props.path}>
+            <div onClick={()=>{window.location.href = "/Jejuplace/" + props.path;}}>
             <figure className='card_item_pic-wrap' data-category={props.label}>
                 <img className='card_item_img' alt='Travel Img'
                 src={props.src}/>
             </figure>
-            </Link>
+            </div>
             <div className='card_item_info'>
                 <div className='like_place'>
-                {Authorization !== null ? ( likeplace === false ? <p onClick={user_like_place}>♡</p> :<p onClick={user_like_place}>♥</p>) :<></> }
+                {Authorization !== null ? ( likeplace === false ? <p onClick={user_like_place}><div><img src="/images/hea.png" /></div></p> :<p onClick={user_like_place}><div><img src="/images/hea2.png" /></div></p>) :<></> }
                 </div>
                 <h5 className='card_item_text'>{place}</h5>
             </div>
