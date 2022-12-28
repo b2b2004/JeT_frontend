@@ -74,13 +74,20 @@ html{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1;
+}
+
+.s1-1{flex:3;}
+.s1-2{flex:1;}
+
+.s1-1 hr{
+    width: 950px;
+    margin: auto;
+    border-top: 3px dashed #ddd;
 }
 
 .basic-info,
-.personal-info{
+.place_course-like{
     height: 100vh;
-    width: 400px;
     padding: 60px 0;
 
     background-color: #fff;
@@ -88,8 +95,16 @@ html{
     box-shadow: 5px 3px 3px #cecece;
 }
 
+.basic-info{
+    width: 400px;
+}
+.place_course-like{
+    width: 1000px;
+    margin-right: 10px;
+}
+
 .basic-info h3, 
-.personal-info h3{
+.place_course-like h3{
     font-size: 1.4rem;
     padding-top: 10px;
     padding-bottom: 30px;
