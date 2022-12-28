@@ -5,11 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81d3af69-f390-453f-a49c-8006fd34595d" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/src/component/card/Course.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/card/Courseitem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/card/course.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/CourseRec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/css/courserec.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/footer/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/footer/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/jejuplace/PlaceReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/jejuplace/PlaceReview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/nav/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/nav/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/CateDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CateDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/JeJuPlace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/JeJuPlace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/css/jejuplace.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/jejuplace.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +99,8 @@
       <workItem from="1671838620040" duration="12644000" />
       <workItem from="1671873579211" duration="207000" />
       <workItem from="1672012784170" duration="26007000" />
-      <workItem from="1672099278894" duration="11758000" />
+      <workItem from="1672099278894" duration="19630000" />
+      <workItem from="1672185593037" duration="7898000" />
     </task>
     <servers />
   </component>

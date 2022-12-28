@@ -4,11 +4,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {setModalVisible} from "../store/RecommendCourseStep";
 import Modal from "../component/modal/Modal";
 import CourseModal from "../component/modal/CourseModal";
-
 import Card from "../component/card/Card"
 import hreoBg from "../assert/travel_bgr.png"
 import './css/catedetail.css';
-import Carditem from "../component/card/Carditem";
 import { Link } from 'react-router-dom';
 
 function CateDetail() {
@@ -76,6 +74,9 @@ function CateDetail() {
             </div>
         </div>
         <div className='cate-section'>
+
+            <Link to="/Mypage"><button>마이페이지(예비)</button></Link>
+            <Link to="/Course"><button>코스(예비)</button></Link>
             <h1>제주도에는 이런 여행지가 있습니다</h1>
             <div className='cards'>
                             {jejuData.map((jejuData) => (

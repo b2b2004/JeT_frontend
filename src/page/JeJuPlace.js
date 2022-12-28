@@ -1,6 +1,6 @@
 import Navbar from "../component/nav/Navbar";
 import '../page/css/jejuplace.css'
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from 'react'
 import {useParams} from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -8,18 +8,21 @@ import "slick-carousel/slick/slick-theme.css";
 import PlaceReview from "../component/jejuplace/PlaceReview";
 
 function JeJuPlace(){
+
     const params  = useParams();
     const [jejuData, setJejuData] = useState([]);
     const [Img_url,setImg_url] = useState([]);
     const Authorization = localStorage.getItem("Authorization");
     const [likeplace, setLikeplace] = useState(false);
-    const [review, setReview] = useState({
-        num: params.num,
+    const [sendreview, setSendReview] = useState({
+        place_num: params.num,
         content: "",
     });
+    const [review, setReview] = useState([]);
 
     useEffect(()=>{
-        fetch("http://localhost:8087/board/JejuPlace/" + params.num,
+        // 관광지 데이터 불러오기
+        fetch("http://localhost:8087/board/JejuPlace/information/" + params.num,
             {
                 method: "POST",
                 headers: {
@@ -28,6 +31,7 @@ function JeJuPlace(){
             })
             .then(res=> res.json())
             .then((res) =>{
+                console.log(res);
                 setJejuData(res);
                 // 이미지 주소 배열처리
                 let emp1 = res.detail_img.replace(/\'/g, '');
@@ -35,11 +39,25 @@ function JeJuPlace(){
                 let emp3 = emp2.replace(']', '');
                 setImg_url(emp3.split(','));
             })
+
+        // 해당 관광지 리뷰 불러오기
+        fetch("http://localhost:8087/board/JejuPlace/review/" + params.num,
+            {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                },
+            })
+            .then(res=> res.json())
+            .then((res) =>{
+                setReview(res);
+            })
     },[])
 
     useEffect(()=>{
         if(Authorization !== null)
         {
+            // 좋아요 상태확인
             fetch("http://localhost:8087/user/likePlace",
                 {
                     method: "GET",
@@ -49,12 +67,9 @@ function JeJuPlace(){
                 })
                 .then(res=> res.json())
                 .then((res) =>{
-                    console.log(res);
-                    console.log(jejuData.name);
                     for(let i in res) {
                         if(jejuData.name === res[i].place)
                         {
-                            console.log("hi");
                             setLikeplace(true);
                         }
                     }
@@ -77,6 +92,7 @@ function JeJuPlace(){
         marker.setMap(map);
     },[jejuData])
 
+    // 좋아요 눌렀을때
     const user_like_place = () =>{
         if(likeplace === true)
         {
@@ -95,17 +111,19 @@ function JeJuPlace(){
             })
             .then((res)=> res.text())
             .then((res) =>{
+                location.reload();
             })
     }
 
     const chageValue = (e) =>{
-        setReview({
-            ...review,
+        setSendReview({
+            ...sendreview,
             [e.target.name]: e.target.value,
         });
 
     }
 
+    // 리뷰 등록
     const sendReview = () =>{
         fetch("http://localhost:8087/board/JejuPlace/review",
             {
@@ -113,10 +131,23 @@ function JeJuPlace(){
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8', Authorization
                 },
-                body: review
+                body: JSON.stringify(sendreview)
             })
             .then((res)=> res.json())
             .then((res) =>{
+                if(res === 1)
+                {
+                    alert("리뷰 등록 성공");
+                    location.reload();
+                }else if(res === 2)
+                {
+                    alert("리뷰 등록 실패");
+                    location.reload();
+                }else if(res === 3)
+                {
+                    alert("로그인 상태가 아닙니다.");
+                    window.location.href = "/login";
+                }
             })
     }
 
@@ -153,10 +184,11 @@ function JeJuPlace(){
                         <li>
                             <div>
                                 {Authorization !== null ? ( likeplace === false ?
-                                    <p onClick={user_like_place}><div><img src="/images/hea.png" /><a>12</a></div></p> :
-                                    <p onClick={user_like_place}><div><img src="/images/hea2.png" /><a>12</a></div></p>) :<></> }
+                                    <p onClick={user_like_place}><div><img src="/images/hea.png" /><a>{jejuData.real_like_num}</a></div></p> :
+                                    <p onClick={user_like_place}><div><img src="/images/hea2.png" /><a>{jejuData.real_like_num}</a></div></p>) :
+                                    <p><div><img src="/images/hea.png" /><a>{jejuData.real_like_num}</a></div></p>}
                             </div>
-                            <div><img src="/images/vie.png" /><a href="">43</a></div>
+                            <div><img src="/images/vie.png" /><a href="">{jejuData.real_lookup_num}</a></div>
                         </li>
                         <li><img src="/images/jj.png" alt="" /></li>
                     </ul>
@@ -222,7 +254,6 @@ function JeJuPlace(){
                             </div>
                         </div>
 
-
                         <h2 className="reviewSpan"> 댓글 </h2>
                         <div id="review">
                                 {Authorization === null ?
@@ -239,7 +270,9 @@ function JeJuPlace(){
                         </div>
                         <div id="reviewlist">
                             <ul>
-                                <PlaceReview />
+                                {review.map((review) => (
+                                    <PlaceReview key={review.review_num} review={review} />
+                                ))}
                             </ul>
                         </div>
                     </div>

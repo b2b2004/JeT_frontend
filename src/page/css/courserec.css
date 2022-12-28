@@ -1,0 +1,128 @@
+.course-container{
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 50px;
+}
+
+.course-title{
+    padding-bottom: 15px;
+}
+
+.course-title h2{
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to top, #ffff9e 10%, transparent 50%);
+}
+
+.course-map{
+    margin: 30px 0;
+}
+
+.course-list{
+    border: 1.5px solid black;
+    box-sizing: border-box;
+
+    border-radius: 50px;
+    box-shadow: 5px 5px #e9e9e9;
+
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+
+    margin: 40px 0;
+    padding: 0 10px;
+}
+
+.course-list ul{
+    display:flex;
+    justify-content: center;
+  }
+
+  .course-list li{
+    list-style:none;
+    padding: 0px 10px;
+  }
+  
+  .course-place a{
+    text-decoration: none;
+    color:black;
+    font-size: 18px;
+  }
+  
+  .course-place a:after{
+    content:'------>>';
+    font-weight: bold;
+    padding: 0px 40px;
+  }
+  
+  .course-place a:last-child:after{
+    display : none;
+  }
+  
+
+
+.course-detail{
+    border: 3px solid #ddd;
+    border-radius: 30px;
+
+    width: 1000px;
+
+    padding: 25px 20px;
+    margin-bottom: 30px;
+}
+
+.place-title{
+    padding: 7px 0;
+    margin-bottom: 12px;
+    border-bottom: 3px dotted #ddd;
+}
+
+.place-title h3::before{
+    content: '🛫';
+    margin-right: 4px;
+}
+
+.place-title h3{
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.place-detail p{
+    padding-bottom: 10px;
+}
+
+
+.another-rec{
+    padding: 8px 14px;
+}
+
+.hotel-container, .restaurant-container{
+    margin-bottom: 12px;
+}
+
+.hotel-title, .restaurant-title{
+    margin-bottom: 7px;
+}
+
+.hotel-title h3::before{
+    content: '🏢';
+    margin-right: 4px;
+}
+
+.restaurant-title h3::before{
+    content: '🍽️';
+    margin-right: 4px;
+}
+.aaaaaa{
+    width: 100px;
+    height: 100px;
+
+    background-color: bisque;
+    text-align: end;
+    line-height:180px ;
+}
+

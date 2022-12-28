@@ -9,8 +9,8 @@ import { FiLogIn } from "react-icons/fi";
 function Navbar() {
 
     const [user,setUser] = useState({});
+    const Authorization = localStorage.getItem("Authorization");
     useEffect(()=>{
-        const Authorization = localStorage.getItem("Authorization");
         if(Authorization != null) {
             fetch(
                 'http://localhost:8087/user/loginuser', {
@@ -22,13 +22,18 @@ function Navbar() {
             )
                 .then((res) => res.json())
                 .then((res) => {
-                    console.log(res);
+                    if(res.status === 500)
+                    {
+                        localStorage.clear();
+                    }
                     setUser(res);
                 })
+        }else{
+            localStorage.clear();
         }
 
         }
-    ,[])
+    ,[Authorization])
 
     const Logout = () =>{
         localStorage.clear();
