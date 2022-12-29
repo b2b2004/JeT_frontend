@@ -9,6 +9,7 @@ import FindPw from "./page/FindPw";
 import MyPage from "./page/Mypage";
 import Course from "./page/CourseRec"
 import JeJuPlace from "./page/JeJuPlace";
+import CourseDetail from "./page/CourseDetail"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/Mypage" element={<MyPage/>}/>
           <Route path="/Course" element={<Course/>}/>
           <Route path="/Jejuplace/:num" element={<JeJuPlace/>}/>
+          <Route path="/CourseDetail" element={<CourseDetail/>}/>
         </Routes>
       </Router>
     </>

@@ -16,13 +16,23 @@ function Mypage() {
         <section className='section' id='user_info'>
             <div className='section-form'>
                 <form>
-                    <div className='section-title'>
-                        <h2>회원 정보</h2>
-                    </div>
+
                     <div className='section-container'>
                         <div className='s1-1'>
+                            <div className='place_course-like'>
+                                <h3>관광지 😍</h3>
+                                <div className='place-like'>
+                                    뭐로 보여주지
+                                </div>
+                                <hr/>
+                                <h3>코스 😎</h3>
+                                <div className='course-like'>
+                                    그러게
+                                </div>
+                            </div>
+                        </div>
+                        <div className='s1-2'>
                             <div className='basic-info'>
-                                <h3>기본 정보</h3>
                                 <div className='mypage-input'>
                                     <label>이름</label>
                                     <input type="text"></input>
@@ -36,11 +46,7 @@ function Mypage() {
                                     <input type="email"></input>
                                 </div>  
                             </div>
-                        </div>
-                        <div className='s1-2'>
-                            <div className='personal-info'>
-                                <h3>개인 성향 정보</h3>
-                            </div>
+
                        </div>
                     </div>
                     <div className='scroll_btns'>
