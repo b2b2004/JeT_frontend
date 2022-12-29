@@ -1,0 +1,138 @@
+.uc-all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 40px 0;
+}
+
+.uc-container{
+    display: flex;
+    justify-content: center;
+
+    margin: 20px 0;
+}
+
+.uc-wrap{
+    width: 500px;
+    height: 300px;
+    border-radius: 20px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+
+
+    background-color: #fff;
+    display: flex;
+}
+
+.uc-img{
+    flex: 2;
+    width: 350px;
+    overflow: hidden;
+}
+
+.uc-img img{
+    object-fit: cover;
+    width: 480px;
+    height: 300px;
+    border-radius: 20px 0 0 20px;
+}
+
+.uc-text{
+    flex: 1;
+    padding: 15px 30px;
+}
+
+.uc-text-title h2{
+    text-align: center;
+    background: linear-gradient(to top, #f0ffbe 40%, transparent 40%)
+}
+
+.uc-sub{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.uc-course{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.uc-course h6{
+    text-align: center;
+    font-size: 18px;
+    padding: 7px 0;
+    margin-bottom: 7px;
+    width: 120px;
+    border-bottom: 2px dotted #ddd;
+}
+
+
+.waypoint{
+    display: flex; 
+    
+    padding: 4px 0;
+}
+
+.waypoint p{
+    font-size: 14px;
+    margin-left: 40px;
+}
+
+
+  .dorpdown-container {
+    min-width: 120px;
+    box-shadow: 0 4px 5px 0 #00000026;
+    position: relative;
+    z-index: 10;
+  }
+  #dropdown {
+    left: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+  .dropdownLabel {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+  }
+  .dropdownLabel:hover {
+    cursor: pointer;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 25px;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 5px 0 #00000026;
+
+    margin-top: 4px;
+    z-index: 1;
+  }
+  
+  #dropdown:checked + label + div.dropdown-content {
+    display: block;
+    border-top: 1px solid #00000026;
+  }
+  .caretIcon {
+    transition: transform 250ms ease-out;
+  }
+  #dropdown:checked + label > .caretIcon {
+    transform: rotate(-180deg);
+  }
+  
+  .dropdown-content ul {
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0 3px;
+    margin: 0;
+  }
+  .dropdown-content ul li {
+    margin: 2px 0;
+    text-align: center;
+    font-size: 12px;
+  }
+  

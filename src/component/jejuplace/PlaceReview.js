@@ -1,5 +1,6 @@
 import "./placereview.css"
 import {useState, useEffect} from "react";
+import { BiDotsVertical } from "react-icons/bi";
 
 function PlaceReview(props){
 
@@ -50,7 +51,21 @@ function PlaceReview(props){
     return<>
         <li id="liid">
             <div>
-                <div className="reviewId"> <p>{username}({userId})</p> <p>⋮</p></div>
+                <div className="reviewId">
+                    <p>{username}({userId})</p>
+                    <div className="dropdown">
+                        <input id="dropdown" type="checkbox" />
+                        <label className="dropdownLabel" for="dropdown">
+                            <BiDotsVertical size='20'/>
+                        </label>
+                        <div className="dropdown-content">
+                            <ul className="dropdown-ul">
+                                <li>수정</li>
+                                <li>삭제</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <p className="reviewContent">{content}</p>
                 <p className="reviewDate">{nowDate}</p>
                 <div className="btn2">
