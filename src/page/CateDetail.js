@@ -74,11 +74,7 @@ function CateDetail() {
             </div>
         </div>
         <div className='cate-section'>
-<<<<<<< HEAD
-=======
-
             <Link to="/Mypage"><button>마이페이지(예비)</button></Link>
->>>>>>> 696d267658787ba9826fbf46b1fe34e1fae8de4c
             <Link to="/Course"><button>코스(예비)</button></Link>
             <Link to="/CourseDetail"><button>코스 디테일(예비)</button></Link>
             <h1>제주도에는 이런 여행지가 있습니다</h1>
