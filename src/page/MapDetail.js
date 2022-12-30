@@ -1,20 +1,87 @@
 import React, {useEffect, useState} from 'react'
 import Navbar from '../component/nav/Navbar'
 import './css/mapdetail.css'
+import MapCard from "../component/card/MapCard";
 const { kakao } = window;
+import { BiX } from "react-icons/bi";
 
 
 function MapDetail() {
+
+    const [jejuData, setJejuData] = useState([]);
+    const [pt , setPt] = useState([{
+        content: '',
+        latlng: ''
+    }]);
+    let [pageNo,setPageNo] = useState(10);
+
     useEffect(()=>{
+
+        fetch("http://localhost:8087/board/areaTravel",
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                },
+                body: JSON.stringify(pageNo)
+            })
+            .then((res)=> res.json())
+            .then((res) =>{
+                setJejuData(res);
+                console.log(res);
+                for(let i=0;i<res.length;i++)
+                {
+                    let img = res[i].detail_img.split(',')[0];
+                    img = img.substring(2,img.length-1);
+                    let url ='/Jejuplace/'+res[i].jejuDataNo;
+                    const onePt ={
+                        content: "<div id='detail_card' style=''>"
+                            + "<div className='close'>" + "<img className='closeBtn' onClick={document.getElementById('detail_card').style.display='none';} src='/images/Xbox.png' />" + "</div>"
+                            + "<img className='abc' src="+ img + "/>"
+                            + "<p>" + res[i].name + "</p>"
+                            +"<div onClick={window.location.href='"+url+"'}>" + "<a>" + "자세히보기" +"</a>" + "</div>"
+                            +"</div>",
+                        latlng: new kakao.maps.LatLng(res[i].latitude, res[i].longitude),
+                        jejuDataNo: res[i].jejuDataNo
+                    };
+                    pt.push(onePt);
+                }
+                })
+    },[pageNo])
+
+
+    function kakaoMap(){
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
                 center: new kakao.maps.LatLng(33.45940882944249, 126.9400586643283), // 지도의 중심좌표
-                level: 5 // 지도의 확대 레벨
+                level: 8 // 지도의 확대 레벨
             };
-// 지도를 생성합니다
+        // 지도를 생성합니다
         var map = new kakao.maps.Map(mapContainer, mapOption);
 
-// 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
+
+        for (let i = 0; i < pt.length; i ++) {
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                map: map, // 마커를 표시할 지도
+                position: pt[i].latlng // 마커의 위치
+            });
+
+            var overlay = new kakao.maps.CustomOverlay({
+                content: pt[i].content,
+                map: map,
+                position: marker.getPosition()
+            });
+            overlay.setMap(null);
+
+            kakao.maps.event.addListener(marker, 'click', function() {
+                overlay.setMap(map);
+                overlay.setContent(pt[i].content);
+                overlay.setPosition(pt[i].latlng);
+            });
+        }
+
+        // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
         var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}),
             contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
             markers = [], // 마커를 담을 배열입니다
@@ -230,16 +297,55 @@ function MapDetail() {
 // // 지도에 선을 표시합니다
 //                 polyline.setMap(map);
 //             })
+    }
 
-
-
-
-    },[]);
-
+    useEffect(()=>{
+        kakaoMap();
+    },[jejuData, pt]);
 
   return (
     <div>
         <Navbar/>
+        <div className="all_wrap">
+        <div className="list_wrap">
+            <ul>
+                {jejuData.map((jejuData) => (
+                    <div onClick={()=>{
+                        let num = jejuData.jejuDataNo;
+                        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                            mapOption = {
+                                center: new kakao.maps.LatLng(pt[num].latlng.getLat(), pt[num].latlng.getLng()), // 지도의 중심좌표
+                                level: 8 // 지도의 확대 레벨
+                            };
+                        // 지도를 생성합니다
+                        var map = new kakao.maps.Map(mapContainer, mapOption);
+                        for (let i = 0; i < pt.length; i ++) {
+                            // 마커를 생성합니다
+                            var marker = new kakao.maps.Marker({
+                                map: map, // 마커를 표시할 지도
+                                position: pt[i].latlng // 마커의 위치
+                            });
+                            if(num === i)
+                            {
+                                var overlay = new kakao.maps.CustomOverlay({
+                                    content: pt[num].content,
+                                    map: map,
+                                    position: pt[num].latlng
+                                });
+                            }
+                        kakao.maps.event.addListener(marker, 'click', function() {
+                            overlay.setMap(map);
+                            overlay.setContent(pt[i].content);
+                            overlay.setPosition(pt[i].latlng);
+                        });
+                        }
+
+                    }}>
+                    <MapCard key={jejuData.JejuDataNo} jejuData={jejuData} />
+                    </div>
+                ))}
+            </ul>
+        </div>
         <div className="map_wrap">
             <div id="map" style={{
                 width: '100%',
@@ -248,19 +354,6 @@ function MapDetail() {
                 overflow: "hidden"
             }}></div>
 
-            <div id="menu_wrap" className="bg_white">
-                <div className="option">
-                    <div>
-                        <form onSubmit="searchPlaces(); return false;">
-                            키워드 : <input type="text" value="성산일출봉" id="keyword" size="15" />
-                            <button type="submit">검색하기</button>
-                        </form>
-                    </div>
-                </div>
-                <hr />
-                    <ul id="placesList"></ul>
-                    <div id="pagination"></div>
-            </div>
             <ul id="category">
                 <li id="AT4" data-order="1">
                     <span className="category_bg mart"></span>
@@ -279,6 +372,7 @@ function MapDetail() {
                     카페
                 </li>
             </ul>
+        </div>
         </div>
     </div>
   )

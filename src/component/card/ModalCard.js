@@ -4,10 +4,9 @@ import "./modalcard.css"
 
 const ModalCard = () => {
   return (
-    <ul>
+
       <ModalCardItem/>
-    </ul>
   )
 }
 
-export default ModalCard
+export default ModalCard;

@@ -5,19 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81d3af69-f390-453f-a49c-8006fd34595d" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/component/card/Course.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/card/Courseitem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/card/course.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/CourseRec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/css/courserec.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/jejuplace/PlaceReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/jejuplace/PlaceReview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/nav/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/nav/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/CateDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CateDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/JeJuPlace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/JeJuPlace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Course.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/ModalCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/ModalCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/modalcard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/modalcard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/ThirdModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/ThirdModal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/CourseRec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CourseRec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/MapDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/MapDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/css/mapdetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/mapdetail.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -100,7 +96,10 @@
       <workItem from="1671873579211" duration="207000" />
       <workItem from="1672012784170" duration="26007000" />
       <workItem from="1672099278894" duration="19630000" />
-      <workItem from="1672185593037" duration="7898000" />
+      <workItem from="1672185593037" duration="10984000" />
+      <workItem from="1672272238527" duration="27460000" />
+      <workItem from="1672310300715" duration="1279000" />
+      <workItem from="1672359191244" duration="7269000" />
     </task>
     <servers />
   </component>

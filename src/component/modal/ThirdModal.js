@@ -1,10 +1,9 @@
-import Calendar from "react-calendar";
 import {useDispatch} from "react-redux";
 import {nextStep, previousStep} from "../../store/RecommendCourseStep";
 import {useEffect, useState} from "react";
 import ModalCard from "../card/ModalCard";
-
 import './ThirdModal.css'
+
 
 const ThirdModal = ({handleClose}) =>{
 
@@ -39,8 +38,12 @@ const ThirdModal = ({handleClose}) =>{
                     onClick={backhandleStep}
                 />
             </div>
-            <div>
-                <ModalCard/>
+            <div className="thirdModal-Wrap">
+                <ul>
+                {jejuData.map((jejuData) => (
+                    <ModalCard key={jejuData.JejuDataNo} jejuData={jejuData} />
+                ))}
+                </ul>
             </div>
             <div className="modal-likePlace-btn">
                 <button>찜 목록</button>

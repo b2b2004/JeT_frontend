@@ -59,3 +59,9 @@
     opacity: 0;
     cursor: default;
 }
+
+.thirdModal-Wrap ul{
+    flex-wrap: wrap;
+    width: 900px;
+    height: 400px;
+}
