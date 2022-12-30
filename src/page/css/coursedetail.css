@@ -1,0 +1,49 @@
+.userCourse-container{
+    display: flex;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+.userCourse-wrap{
+    margin-top: 40px;
+    border: 1.5px solid #ddd;
+    border-radius: 20px;
+    width: 75vw;
+    height: 100vh;
+}
+
+.userCourse-title{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.userCourse-wrap hr{
+    border-top: 2px dashed #ddd;
+}
+
+.userCourse-title h2{
+    padding: 17px 0;
+    font-size: 30px;
+}
+
+
+.uc-btns{
+    display: flex;
+    justify-content: flex-end;
+
+    margin: 0 12px;
+}
+
+.uc-btn{
+    background-color: #fff;
+
+    margin-right: 9px;
+    padding: 7px 45px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+
+    font-size: 14px;
+}
