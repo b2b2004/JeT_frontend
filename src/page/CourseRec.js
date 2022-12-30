@@ -62,7 +62,7 @@ const CourseRec = () => {
                         <div className='hotel-title'>
                             <h3>주변 숙박</h3>
                         </div>
-                        <CourseCard/>
+                        <CourseCard />
                     </div>
                     <div className='restaurant-container'>
                         <div className='restaurant-title'>
