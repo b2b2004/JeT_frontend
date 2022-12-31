@@ -8,6 +8,9 @@ import './css/courserec.css'
 
 const CourseRec = () => {
     useEffect(()=>{
+
+
+
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
                 center: new kakao.maps.LatLng(33.45940882944249, 126.9400586643283), // 지도의 중심좌표

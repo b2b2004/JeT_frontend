@@ -8,7 +8,6 @@ const HouseAndFoodMadal = ({handleClose}, props) =>{
          return <FoodModal />
         // 숙박 디자인 하고 싶으면 바꾸고 return <HouseModal />
     };
-
     return (
         <div className={styles.wrapper}>
             <div className={styles.modalHeader}>

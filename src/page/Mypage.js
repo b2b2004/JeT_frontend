@@ -1,11 +1,185 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from '../component/nav/Navbar'
 import { BiChevronsUp , BiChevronsRight} from "react-icons/bi";
 
 import './css/mypage.css'
-
+import * as yup from "yup";
+import {useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
+import * as events from "events";
 
 function Mypage() {
+    const [user,setUser] = useState({});
+    const Authorization = localStorage.getItem("Authorization");
+    const [info, setInfo] = useState({
+        email: ''
+    });
+    const [pw, setPw] = useState({
+        password1: '',
+        password2: '',
+        password3: ''
+    });
+
+    const[emp, setemp] = useState({
+        keyword: ["0","1","2"]
+    })
+
+    const aaa = (e) =>{
+        e.preventDefault();
+        console.log(emp.keyword);
+
+        fetch(
+            'http://localhost:5000/tour_course', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                },
+                body: JSON.stringify(emp)
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+            })
+    }
+
+    useEffect(()=>{
+        fetch(
+            'http://localhost:8087/user/loginuser', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8', Authorization
+                },
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => {
+                if(res.status === 500)
+                {
+                    localStorage.clear();
+                }
+                console.log(res);
+                setUser(res);
+            })
+    }, [])
+
+    const chageInfo = (e) => {
+        e.preventDefault();
+        console.log(info);
+
+        fetch(
+            'http://localhost:8087/user/chageUser', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8', Authorization
+                },
+                body: info.email
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => {
+                if(res.status === 500)
+                {
+                    localStorage.clear();
+                    alert("로그인 시간이 만료 되었습니다.");
+                    window.location.href = "/";
+                }
+                if(res === 1)
+                {
+                    alert("회원정보 수정 완료");
+                    window.location.href = "/Mypage";
+                }else{
+                    alert("회원정보 수정 실패");
+                    window.location.href = "/";
+                }
+            })
+    }
+
+    const changeValue = (e) => {
+        setInfo({
+            ...info,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const changeValue1 = (e) => {
+        setPw({
+            ...pw,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    // 비밀번호 변경 유효성 검증
+    const formSchema = yup.object({
+        password2: yup
+            .string()
+            .required('영문,숫자,기호 포함 8자리 입력')
+            .min(8, '최소 8자 이상 가능합니다')
+            .max(15, '최대 15자 까지만 가능합니다')
+            .matches(
+                /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W))(?=.*[!@#$%^*+=-]).{8,16}$/,
+                '영문 숫자 특수문자 포함 8자리 입력'
+            ),
+        password3: yup
+            .string()
+            .oneOf([yup.ref('password2')], '비밀번호가 다릅니다.'),
+    });
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        mode: 'onChange',
+        resolver: yupResolver(formSchema),
+    });
+
+
+    const ChagePassword = (data) => {
+        pw.password3 = data.password3;
+        // 현재 비밀번호가 맞는지 확인
+        fetch('http://localhost:8087/user/ckPw', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8', Authorization
+                },
+                body: pw.password1
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                if(res === 3)
+                {
+                    alert("현재 비밀번호가 일치하지 않습니다.");
+                }else{
+                    chagepw();
+                }
+            })
+    }
+
+    function chagepw(){
+        fetch('http://localhost:8087/user/chagePw', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8', Authorization
+                },
+                body: pw.password3
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => {
+                if(res === 1)
+                {
+                    alert("비밀번호 번경 성공");
+                    localStorage.clear();
+                    window.location.href = "/login";
+
+                }else if(res === 2){
+                    alert("비밀번호 번경 실패");
+                }
+            })
+    }
   return (
     <>
     <div className='fix'>
@@ -22,6 +196,8 @@ function Mypage() {
                             <div className='place_course-like'>
                                 <h3>관광지 😍</h3>
                                 <div className='place-like'>
+
+                                    <button onClick={aaa}>테스트 돼라 시발 </button>
                                     뭐로 보여주지
                                 </div>
                                 <hr/>
@@ -35,15 +211,15 @@ function Mypage() {
                             <div className='basic-info'>
                                 <div className='mypage-input'>
                                     <label>이름</label>
-                                    <input type="text"></input>
+                                    <input type="text" placeholder={user.username} disabled></input>
                                 </div>
                                 <div className='mypage-input'>
                                     <label>아이디</label>
-                                    <input type="text"></input>
+                                    <input type="text" placeholder={user.userId} disabled></input>
                                 </div>
                                 <div className='mypage-input'>
                                     <label>이메일</label>
-                                    <input type="email"></input>
+                                    <input type="email" placeholder={user.email} disabled></input>
                                 </div>  
                             </div>
 
@@ -79,25 +255,23 @@ function Mypage() {
                     </div>
                     <div className='section-container'>
                         <div className='info-change'>
-                            <div className='mypage-input'>
-                                <label>이름</label>
-                                <input type="text"></input>
-                            </div>
-                            <div className='mypage-input'>
-                                <label>아이디</label>
-                                <input type="text"></input>
-                            </div>
-                            <div className='mypage-input'>
-                                <label>이메일</label>
-                                <input type="email"></input>
-                            </div>
-                            <div className='mypage-input'>
-                                <label>이메일</label>
-                                <input type="email"></input>
-                            </div>
-                            <div className='btns'>
-                                <button className='change-btn'>회원정보 변경</button>
-                            </div>
+                            <form action="">
+                                <div className='mypage-input'>
+                                    <label>이름</label>
+                                    <input type="text" disabled placeholder={user.username}></input>
+                                </div>
+                                <div className='mypage-input'>
+                                    <label>아이디</label>
+                                    <input type="text" disabled placeholder={user.userId}></input>
+                                </div>
+                                <div className='mypage-input'>
+                                    <label>이메일</label>
+                                    <input type="email" placeholder={user.email} name="email" onChange={changeValue}></input>
+                                </div>
+                                <div className='btns'>
+                                    <button className='change-btn' onClick={chageInfo}>회원정보 변경</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div className='scroll_btns'>
@@ -117,27 +291,39 @@ function Mypage() {
 
         <section className='section' id='change_pw'>
             <div className='section-form'>
-                <form>
                     <div className='section-title'>
                         <h2>비밀번호 변경</h2>
                     </div>
                     <div className='section-container'>
                         <div className='pass-change'>
-                            <div className='mypage-input'>
-                                <label >비밀번호</label>
-                                <input type="password"></input>
-                            </div>
-                            <div className='mypage-input'>
-                                <label>변경할 비밀번호</label>
-                                <input type="password"></input>
-                            </div>
-                            <div className='mypage-input'>
-                                <label>비밀번호 확인</label>
-                                <input type="password"></input>
-                            </div>
-                            <div className='btns'>
-                                <button className='change-btn'>비밀번호 변경</button>
-                            </div>
+                            <form  onSubmit={handleSubmit(ChagePassword)}>
+                                <div className='mypage-input'>
+                                    <label >현재 비밀번호</label>
+                                    <input type="password" name="password1" onChange={changeValue1}></input>
+                                </div>
+                                <div className='mypage-input'>
+                                    <label>변경할 비밀번호</label>
+                                    <input
+                                        id="signupId"
+                                        type="password"
+                                        name="password2"
+                                        {...register('password2')}
+                                    />
+                                    {errors.password2 && <p className="ptag">{errors.password2.message}</p>}
+                                </div>
+                                <div className='mypage-input'>
+                                    <label>비밀번호 확인</label>
+                                    <input
+                                        type="password"
+                                        name="password3"
+                                        {...register('password3')}
+                                    />
+                                    {errors.password3 && <p className="ptag">{errors.password3.message}</p>}
+                                </div>
+                                <div className='btns'>
+                                    <button className='change-btn'>비밀번호 변경</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div className='scroll_btns'>
@@ -146,7 +332,6 @@ function Mypage() {
                         <a href='#change_pi'>성향정보 변경  
                         <BiChevronsRight color="000" size="25"/></a>
                     </div>
-                </form>
                     <div className='scroll_top_btn'>
                         <a href="#user_info">
                             <BiChevronsUp color="#fff" size="30"/>

@@ -6,14 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="81d3af69-f390-453f-a49c-8006fd34595d" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/ModalCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/ModalCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/modalcard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/modalcard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modal/ThirdModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/ThirdModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/HouseAndFoodModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/HouseAndFoodModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/CourseRec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CourseRec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/MapDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/MapDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/css/mapdetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/mapdetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Mypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/mypage.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +95,9 @@
       <workItem from="1672185593037" duration="10984000" />
       <workItem from="1672272238527" duration="27460000" />
       <workItem from="1672310300715" duration="1279000" />
-      <workItem from="1672359191244" duration="7269000" />
+      <workItem from="1672359191244" duration="13769000" />
+      <workItem from="1672445382249" duration="2935000" />
+      <workItem from="1672457146773" duration="4458000" />
     </task>
     <servers />
   </component>
