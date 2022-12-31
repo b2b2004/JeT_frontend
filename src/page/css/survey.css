@@ -1,0 +1,106 @@
+.survey-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.survey-title{
+    border: 3px solid black;
+    border-radius: 50px;
+    box-shadow: 0 9px 11px 0 rgba(0, 0, 0, 0.25);
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 90px;
+    width: 70%;
+    height: 90px;
+}
+
+.survey-title h2{
+    font-size: 37px;
+    font-style: italic;
+}
+
+.question{
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    width: 600px;
+    height: 250px;
+    margin: 20px 10px;
+}
+
+.question-box{
+    display: flex;
+}
+
+.question-title h3{
+    height: 80px;
+    line-height: 80px;
+    font-size: 27px;
+    padding-left: 20px;
+}
+
+.answer-container{
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    border: none;
+}
+
+.answer{
+    height: 35px;
+    padding: 7px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.answer input{
+    margin: 0 10px;
+}
+
+.answer input[type="checkbox"]{
+    appearance: none;
+    border: max(2px, 0.1em) solid #ddd;
+    border-radius: 50%;
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.answer input[type="checkbox"]:checked{
+    border: 0.28rem solid lightblue;
+}
+
+.answer input[type="checkbox"]:focus-visible{
+    outline-offset: max(2px,0.1em);
+    outline: max(2px, 0.1em) dotted #ddd;
+}
+.answer input[type="checkbox"]:hover{
+    box-shadow: 0 0 0 max(4px, 0.2em) #ddd;
+    cursor: pointer;
+}
+
+.survey-submit-btn{
+    display: flex;
+    justify-content: center;   
+    padding:10px 20px;
+
+}
+
+.survey-submit-btn button{
+    padding: 10px 180px;
+    font-size: 17px;
+
+    color: gold;
+    background-color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+

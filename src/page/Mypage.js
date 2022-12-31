@@ -181,7 +181,7 @@ function Mypage() {
             })
     }
   return (
-    <>
+    <div className='page-scroll-lock'>
     <div className='fix'>
         <Navbar/>
     </div>
@@ -366,7 +366,7 @@ function Mypage() {
             </div>
         </section>
      </div>
-    </>
+    </div>
   )
 }
 

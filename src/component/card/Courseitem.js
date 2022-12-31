@@ -2,10 +2,19 @@ import React from 'react'
 import im from '../../assert/jeju_il.jpg'
 
 
-const Courseitem = () => {
+function Courseitem () {
+
+    const closeModal = () => {
+          document.body.style.overflow = "auto";
+          dispatch(setModalVisible(false));
+      };
+      const openModal = () => {
+          setI
+      };
+
   return (
     <>
-      <li className='another_item'>
+      <li className='another_item' onClick={openModal}>
         <div className='ano_item_pic'>
            <img className='ano_item_img' alt='Ano Img'
            src={im}
