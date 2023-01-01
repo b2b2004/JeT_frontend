@@ -26,6 +26,7 @@ const ThirdModal = ({handleClose}) =>{
             .then((res)=> res.json())
             .then((res) =>{
                 setJejuData(res);
+                console.log(res);
             })
     },[])
 
@@ -41,12 +42,11 @@ const ThirdModal = ({handleClose}) =>{
             <div className="thirdModal-Wrap">
                 <ul>
                 {jejuData.map((jejuData) => (
+                    <div>
                     <ModalCard key={jejuData.JejuDataNo} jejuData={jejuData} />
+                    </div>
                 ))}
                 </ul>
-            </div>
-            <div className="modal-likePlace-btn">
-                <button>찜 목록</button>
             </div>
 
             <div className="complete-btn">

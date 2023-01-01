@@ -3,15 +3,14 @@ import Navbar from '../component/nav/Navbar'
 import './css/mapdetail.css'
 import MapCard from "../component/card/MapCard";
 const { kakao } = window;
-import { BiX } from "react-icons/bi";
-
 
 function MapDetail() {
 
     const [jejuData, setJejuData] = useState([]);
     const [pt , setPt] = useState([{
         content: '',
-        latlng: ''
+        latlng: '',
+        jejuDataNo: ''
     }]);
     let [pageNo,setPageNo] = useState(10);
 
@@ -42,7 +41,6 @@ function MapDetail() {
                             +"<div onClick={window.location.href='"+url+"'}>" + "<a>" + "자세히보기" +"</a>" + "</div>"
                             +"</div>",
                         latlng: new kakao.maps.LatLng(res[i].latitude, res[i].longitude),
-                        jejuDataNo: res[i].jejuDataNo
                     };
                     pt.push(onePt);
                 }
@@ -309,28 +307,30 @@ function MapDetail() {
         <div className="all_wrap">
         <div className="list_wrap">
             <ul>
-                {jejuData.map((jejuData) => (
+                {jejuData.map((jejuData, num) => (
                     <div onClick={()=>{
-                        let num = jejuData.jejuDataNo;
+                        console.log(num);
                         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                             mapOption = {
-                                center: new kakao.maps.LatLng(pt[num].latlng.getLat(), pt[num].latlng.getLng()), // 지도의 중심좌표
+                                center: new kakao.maps.LatLng(pt[num+1].latlng.getLat(), pt[num+1].latlng.getLng()), // 지도의 중심좌표
                                 level: 8 // 지도의 확대 레벨
                             };
                         // 지도를 생성합니다
                         var map = new kakao.maps.Map(mapContainer, mapOption);
+
                         for (let i = 0; i < pt.length; i ++) {
                             // 마커를 생성합니다
                             var marker = new kakao.maps.Marker({
                                 map: map, // 마커를 표시할 지도
                                 position: pt[i].latlng // 마커의 위치
                             });
-                            if(num === i)
+
+                            if((num+1) === i)
                             {
                                 var overlay = new kakao.maps.CustomOverlay({
-                                    content: pt[num].content,
+                                    content: pt[num+1].content,
                                     map: map,
-                                    position: pt[num].latlng
+                                    position: pt[num+1].latlng
                                 });
                             }
                         kakao.maps.event.addListener(marker, 'click', function() {
@@ -355,10 +355,6 @@ function MapDetail() {
             }}></div>
 
             <ul id="category">
-                <li id="AT4" data-order="1">
-                    <span className="category_bg mart"></span>
-                    관광명소
-                </li>
                 <li id="AD5" data-order="3">
                     <span className="category_bg oil"></span>
                     숙박

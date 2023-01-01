@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -47,19 +47,41 @@ function Regist(){
 
   const SignUpSummit = (data) =>{
     delete data.passwordConfirm;
-    fetch("http://localhost:8087/user/signup",
+
+    fetch("http://localhost:8087/user/ckId",
         {
           method: "POST",
           headers: {
             'Content-Type': 'application/json; charset=utf-8'
           },
-          body: JSON.stringify(data)
+          body: data.userId
         })
         .then((res)=> res.text())
         .then((res) =>{
-          alert(res);
-          window.location.href = "/login";
+          console.log(res);
+          if(res === "1")
+          {
+            fetch("http://localhost:8087/user/signup",
+                {
+                  method: "POST",
+                  headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                  },
+                  body: JSON.stringify(data)
+                })
+                .then((res)=> res.text())
+                .then((res) =>{
+                  alert(res);
+                  window.location.href = "/login";
+                })
+          }else if(res === "2"){
+            alert("아이디가 이미 존재합니다.");
+          }else{
+            alert("데이터 베이스 오류");
+          }
+
         })
+
   }
 
   return (

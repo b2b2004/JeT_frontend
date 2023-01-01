@@ -90,6 +90,8 @@ function JeJuPlace(){
             position: markerPosition
         });
         marker.setMap(map);
+
+
     },[jejuData])
 
     // 좋아요 눌렀을때

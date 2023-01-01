@@ -60,6 +60,11 @@
     cursor: default;
 }
 
+.thirdModal-Wrap{
+    margin-bottom: 65px;
+    margin-left: 25px;
+}
+
 .thirdModal-Wrap ul{
     flex-wrap: wrap;
     width: 900px;

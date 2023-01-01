@@ -46,13 +46,14 @@
     list-style:none;
     padding: 0px 10px;
   }
+
   
   .course-place a{
     text-decoration: none;
     color:black;
     font-size: 18px;
   }
-  
+
   .course-place a:after{
     content:'------>>';
     font-weight: bold;
@@ -62,7 +63,6 @@
   .course-place a:last-child:after{
     display : none;
   }
-  
 
 
 .course-detail{

@@ -22,6 +22,9 @@ function Home() {
                 <Link to='/category'>
                   <button id='cate-btn'>CATEGORY</button>
                 </Link>
+                <Link to='/courseDetail'>
+                  <button id='map-btn'>Course</button>
+                </Link>
                 <Link to='/map'>
                   <button id='map-btn'>MAP</button>
                 </Link>

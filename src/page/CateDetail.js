@@ -14,7 +14,9 @@ function CateDetail() {
     const modalVisible = useSelector((state) => state.RecommendCourseStep.modalVisible);
     const [button, setButton] = useState(true);
     const [jejuData, setJejuData] = useState([]);
+    const [jejuData1, setJejuData1] = useState([]);
     let [pageNo,setPageNo] = useState(3);
+    let [pageNo1, setPageNo1] = useState(3);
 
     const closeModal = () => {
         document.body.style.overflow = "auto";
@@ -37,6 +39,10 @@ function CateDetail() {
         setPageNo(pageNo+3);
     }
 
+    const pageNoplus1 = () => {
+        setPageNo1(pageNo1+3);
+    }
+
     useEffect(()=>{
         fetch("http://localhost:8087/board/areaTravel",
             {
@@ -52,7 +58,22 @@ function CateDetail() {
                 setJejuData(res);
             })
 
-    },[pageNo])
+        fetch("http://localhost:8087/board/issue",
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                },
+                body: JSON.stringify(pageNo1)
+            })
+            .then((res)=> res.json())
+            .then((res) =>{
+                console.log(res);
+                setJejuData1(res);
+            })
+
+
+    },[pageNo, pageNo1])
 
 
 
@@ -74,8 +95,6 @@ function CateDetail() {
             </div>
         </div>
         <div className='cate-section'>
-            <Link to="/Course"><button>코스(예비)</button></Link>
-            <Link to="/CourseDetail"><button>코스 디테일(예비)</button></Link>
             <h1>제주도에는 이런 여행지가 있습니다</h1>
             <div className='cards'>
                             {jejuData.map((jejuData) => (
@@ -84,6 +103,17 @@ function CateDetail() {
             </div>
             <br />
             <h1 onClick={pageNoplus}> 더보기 </h1>
+        </div>
+
+        <div className='cate-section'>
+            <h1>요즘 뜨는 여행지는 어딜까?</h1>
+            <div className='cards'>
+                {jejuData1.map((jejuData1) => (
+                    <Card key={jejuData1.JejuDataNo} jejuData={jejuData1} />
+                ))}
+            </div>
+            <br />
+            <h1 onClick={pageNoplus1}> 더보기 </h1>
         </div>
 
         <Modal visible={modalVisible} name="RecommendCourse" onClose={closeModal}>

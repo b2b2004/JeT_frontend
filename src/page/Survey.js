@@ -1,9 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Navbar from '../component/nav/Navbar'
 
 import './css/survey.css'
+import login from "./Login";
 
 const Survey = () => {
+
+    const [answers, setAnswers] = useState({
+        answer1: 0,
+        answer2: 0,
+        answer3: 0,
+        answer4: 0,
+
+    });
+
+    function answerCk(value, name){
+        setAnswers({
+            ...answers,
+            [name]: value
+        });
+    }
+
   return (
     <>
         <Navbar/>
@@ -21,19 +38,19 @@ const Survey = () => {
                             </div>
                             <div className='answer-container'>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" name="answer1" checked={answers.answer1 === 1} onClick={()=>{answerCk(1,"answer1")}}/>
                                     시간 단위로 세세하게 장소와 동선까지 정하고 싶어
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" name="answer1" checked={answers.answer1 === 2} onClick={()=>{answerCk(2,"answer1")}} />
                                     지역이랑 숙소만 정해놓고 나머지는 여행 중에 정할래
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" name="answer1" checked={answers.answer1 === 3} onClick={()=>{answerCk(3,"answer1")}}/>
                                     계획 없이 기분에 따라 발길 닿는대로 다니고 싶어
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" name="answer1" checked={answers.answer1 === 4} onClick={()=>{answerCk(4,"answer1")}}/>
                                     함께하는 사람들이 하자는 데로 할래
                                 </label>
                             </div>
