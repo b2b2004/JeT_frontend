@@ -1,0 +1,53 @@
+.house_modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+}
+
+.store_name{
+    font-size: 26px;
+    padding: 40px 20px;
+}
+
+.house_category{
+    width: 800px;
+    font-size: 18px;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.house_info{
+    width: 100%;
+    padding: 20px 80px;
+}
+
+.house_info label{
+    margin-right: 8px;
+}
+
+.house_info input{
+    border: none;
+    width: 200px;
+    border-bottom: 1.5px solid #ddd;
+}
+
+
+.house_img{
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.house_img h3{
+    padding: 15px 0;
+    font-size: 23px;
+}
