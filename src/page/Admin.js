@@ -13,7 +13,23 @@ const Admin = () => {
                 간단한 사이드 메뉴
             </article>
             <article className='right-side'>
-                거기에 따른 페이지...?
+                <div className='user-table'>
+                  <table className=''>
+                    <th>이름</th>
+                    <th>아이디</th>
+                    <th>비밀번호</th>
+                    <th>이메일</th>
+                    <tr>
+                      <td>홍길동</td>
+                      <td>honggil</td>
+                      <td>gildong11</td>
+                      <td>gildong@naver.cmo</td>
+                    </tr>
+                    <tr>
+                      
+                    </tr>
+                  </table>
+                </div>  
             </article>
         </section>
 
