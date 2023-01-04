@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 
 function CateDetail() {
     const dispatch = useDispatch();
+    const Authorization = localStorage.getItem("Authorization");
     const modalVisible = useSelector((state) => state.RecommendCourseStep.modalVisible);
     const [button, setButton] = useState(true);
     const [jejuData, setJejuData] = useState([]);
@@ -23,6 +24,11 @@ function CateDetail() {
         dispatch(setModalVisible(false));
     };
     const openModal = () => {
+        if(Authorization === null)
+        {
+            alert("로그인 후 이용 가능 합니다.");
+            window.location.href = "/login";
+        }
         document.body.style.overflow = "hidden";
         dispatch(setModalVisible(true));
     };

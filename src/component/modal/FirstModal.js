@@ -1,5 +1,5 @@
 import {useDispatch} from "react-redux";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import 'react-calendar/dist/Calendar.css';
 import moment from "moment";
 import {
@@ -7,15 +7,33 @@ import {
     previousStep, set_Area, set_date_end,
     set_date_start,
     set_duration_end,
-    set_duration_start
+    set_duration_start, set_tendency_result, set_userId
 } from "../../store/RecommendCourseStep";
 
 import "./FirstModal.css";
 
 const FirstModal = ({handleClose}) =>{
     const dispatch = useDispatch();
+    const Authorization = localStorage.getItem("Authorization");
     const [color , setColor] = useState([0,0,0,0,0,0]);
     const [area, setArae] = useState([]);
+
+    useEffect(()=>{
+
+        fetch('http://localhost:8087/user/loginuser', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8', Authorization
+                },
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => {
+            console.log(res.userId);
+            dispatch(set_tendency_result(res.tendency));
+            dispatch(set_userId(res.userId));
+            })
+    })
 
     const nexthandleStep = async () => {
         dispatch(set_Area(area));
@@ -35,13 +53,13 @@ const FirstModal = ({handleClose}) =>{
     }
 
     const changeValue = (e) => {
-        if(e.target.id === date_start) {
+        if(e.target.id === 'date_start') {
             dispatch(set_date_start(e.target.value));
-        }else if(e.target.id === date_end){
+        }else if(e.target.id === "date_end"){
             dispatch(set_date_end(e.target.value));
-        }else if(e.target.id === duration_start){
+        }else if(e.target.id === "duration_start"){
             dispatch(set_duration_start(e.target.value));
-        }else if(e.target.id === duration_end){
+        }else if(e.target.id === "duration_end"){
             dispatch(set_duration_end(e.target.value));
         }
     };

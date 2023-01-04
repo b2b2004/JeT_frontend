@@ -33,13 +33,13 @@ const CourseDetail = () => {
                 <button className='uc-btn'>인기순</button>
                 <button className='uc-btn'>최신순</button>
               </div>
+                <ul className='uc-all'>
                 {courseList.map((courseList) => (
-                    <div onClick={()=>{
-                        window.location.href = "/course/"+ courseList.course_num;
-                    }}>
+                    <div onClick={()=>{window.location.href = "/course/"+ courseList.course_num;}}>
                     <UserCourse key={courseList.course_num} courseList={courseList} />
                     </div>
                 ))}
+                </ul>
             </div>
         </div>
     </>

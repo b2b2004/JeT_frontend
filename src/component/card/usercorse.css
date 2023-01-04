@@ -1,25 +1,15 @@
-.uc-all{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    padding: 40px 0;
-}
 
 .uc-container{
     display: flex;
     justify-content: center;
-
     margin: 20px 0;
 }
 
 .uc-wrap{
-    width: 500px;
+    width: 650px;
     height: 300px;
     border-radius: 20px;
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-
-
     background-color: #fff;
     display: flex;
 }

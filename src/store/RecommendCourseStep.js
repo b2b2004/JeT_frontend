@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
+    userId: undefined,
     modalVisible: false,
     currentStep: 1,
     date_start: undefined,
@@ -10,8 +11,8 @@ const initialState = {
     duration_end: undefined,
     area: [],
     keyword: [],
-    recImage: undefined,
-    tendency: undefined,
+    placeId: undefined,
+    tendency_result: undefined,
 };
 
 const RecommendCourseStepSlice = createSlice({
@@ -39,6 +40,10 @@ const RecommendCourseStepSlice = createSlice({
             ...state,
             modalVisible: action.payload,
         }),
+        set_userId: (state, action) => ({
+            ...state,
+            userId: action.payload,
+        }),
         set_Area: (state, action) => ({
             ...state,
             area: action.payload,
@@ -63,9 +68,13 @@ const RecommendCourseStepSlice = createSlice({
             ...state,
             keyword: action.payload,
         }),
-        set_recImage: (state, action) => ({
+        set_placeId: (state, action) => ({
             ...state,
-            recImage: action.payload,
+            placeId: action.payload,
+        }),
+        set_tendency_result: (state, action) => ({
+            ...state,
+            tendency_result: action.payload,
         }),
     },
 });
@@ -77,12 +86,14 @@ export const {
     setModalVisible,
     doubleStep,
     doublepreviousStep,
+    set_userId,
     set_date_start,
     set_date_end,
     set_duration_start,
     set_duration_end,
     set_Area,
     set_keyword,
-    set_recImage
+    set_placeId,
+    set_tendency_result
 } = RecommendCourseStepSlice.actions;
 export default RecommendCourseStepSlice.reducer;

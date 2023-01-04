@@ -6,26 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="81d3af69-f390-453f-a49c-8006fd34595d" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/card/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/ModalCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/ModalCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/card/UserCourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/UserCourse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/UserCourseitem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/UserCourseitem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/modalcard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/modalcard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/card/usercorse.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/usercorse.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modal/CourseModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/CourseModal.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modal/ThirdModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/ThirdModal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/FirstModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/FirstModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/HouseAndFoodModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/HouseAndFoodModal.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/SecondModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/SecondModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/CateDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CateDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/CourseDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CourseDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/CourseRec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CourseRec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/JeJuPlace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/JeJuPlace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/MapDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/MapDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Mypage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/Regist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Regist.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/Survey.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Survey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/css/courserec.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/courserec.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupProxy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/css/coursedetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/coursedetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/mypage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/RecommendCourseStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/RecommendCourseStep.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -116,7 +115,11 @@
       <workItem from="1672457146773" duration="10636000" />
       <workItem from="1672536738994" duration="5941000" />
       <workItem from="1672544247613" duration="5440000" />
-      <workItem from="1672556878747" duration="12781000" />
+      <workItem from="1672556878747" duration="12896000" />
+      <workItem from="1672618322450" duration="15069000" />
+      <workItem from="1672707315390" duration="2587000" />
+      <workItem from="1672712858742" duration="486000" />
+      <workItem from="1672716269739" duration="14079000" />
     </task>
     <servers />
   </component>

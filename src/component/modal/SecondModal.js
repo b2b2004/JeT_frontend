@@ -16,18 +16,11 @@ const SecondModal = ({handleClose}) =>{
     const [vallength,setVallength] = useState();
 
     const options = [
-        {id:1, value: "가", label: "가"},
-        {id:2, value: "나", label: "나"},
-        {id:3, value: "다", label: "다"},
-        {id:4, value: "라", label: "라"},
-        {id:5, value: "마", label: "마"},
-        {id:6, value: "바", label: "바"},
-        {id:7, value: "사", label: "사"},
-        {id:8, value: "아", label: "아"},
-        {id:9, value: "자", label: "자"},
-        {id:10, value: "차", label: "차"},
-        {id:11, value: "카", label: "카"},
-        {id:12, value: "타", label: "타"},
+        {id:1, value: "0", label: "커플,우정"},
+        {id:2, value: "1", label: "자연"},
+        {id:3, value: "2", label: "체험"},
+        {id:4, value: "3", label: "역사"},
+        {id:5, value: "4", label: "가족"}
     ];
 
     const changeSelect = (e) => {
@@ -66,7 +59,7 @@ const SecondModal = ({handleClose}) =>{
                     onChange={changeSelect}
                     className="languages"
                     options={options}
-                    placeholder="기술을 선택해주세요."
+                    placeholder="키워드를 선택해주세요."
                     
                 />
             </div>

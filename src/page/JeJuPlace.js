@@ -201,15 +201,15 @@ function JeJuPlace(){
             <div className="db_cont_detail">
                 <div className="detail_tab">
                     <ul>
-                        <li className="select_tab on" id="photoTab"><a href="javascript:tabChange('galleryGo');" title="선택됨"><span>사진보기</span></a></li>
-                        <li className="select_tab" id="detailTab"><a href="javascript:tabChange('detailGo');"><span>상세정보</span></a></li>
-                        <li className="select_tab" id="recomTab"><a href="javascript:tabChange('relationGo');"><span>댓글</span></a></li>
+                        <li className="select_tab on" id="photoTab"><a href='#change_img' title="선택됨"><span>사진보기</span></a></li>
+                        <li className="select_tab" id="detailTab"><a href='#change_detail'><span>상세정보</span></a></li>
+                        <li className="select_tab" id="recomTab"><a href='#change_review'><span>댓글</span></a></li>
                     </ul>
                 </div>
 
                     <div id="detailGo">
 
-                        <div className="wrap_imgSlide">
+                        <div className="wrap_imgSlide" id="change_img">
                         <Slider {...settings}>
                             {Img_url.map((Img_url) => (
                                 <div key={Img_url}><img src={Img_url} alt="" /> </div>
@@ -220,7 +220,7 @@ function JeJuPlace(){
                         <div className="wrap_contView">
                             <h3>상세정보</h3>
                             {/* style="padding-bottom: 54px;" */}
-                            <div className="area_txtView top">
+                            <div className="area_txtView top" id="change_detail">
                                 {/* style="overflow: hidden; height: 150px;" */}
                                 <div className="inr_wrap">
                                     <div className="inr">
@@ -255,8 +255,8 @@ function JeJuPlace(){
                                 </div>
                             </div>
                         </div>
-
-                        <h2 className="reviewSpan"> 댓글 </h2>
+                        <br /><br />
+                        <h2 className="reviewSpan" id="change_review"> 댓글 </h2>
                         <div id="review">
                                 {Authorization === null ?
                                     <>

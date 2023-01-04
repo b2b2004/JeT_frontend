@@ -1,24 +1,127 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from '../component/nav/Navbar'
 
 import './css/survey.css'
 import login from "./Login";
+import {useParams} from "react-router-dom";
 
 const Survey = () => {
 
+    const [updateCk ,setUpdateck] = useState(false);
+    const params = useParams();
     const [answers, setAnswers] = useState({
-        answer1: 0,
-        answer2: 0,
-        answer3: 0,
-        answer4: 0,
-
+        answer1: 5,
+        answer2: 5,
+        answer3: 5,
+        answer4: 5,
+        tendency_result: 0,
+        userId: params.userId
     });
-
+    const [score, setScore] = useState(
+        [[[0,5,0,0],[4,0,3,3],[2,4,0,0],[3,2,3,3]],
+        [[0,0,5,0],[0,0,0,0],[0,0,0,5],[2,2,3,2]],
+        [[0,4,0,0],[2,0,2,2],[0,0,0,0],[3,3,3,3]],
+        [[0,0,5,0],[0,0,0,5],[0,0,0,0],[3,0,3,3]]]
+    );
     function answerCk(value, name){
         setAnswers({
             ...answers,
             [name]: value
         });
+    }
+
+
+    useEffect(()=>{
+        fetch("http://localhost:8087/user/getSurvey",
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                },
+                body: params.userId
+            })
+            .then((res)=> res.json())
+            .then((res) =>{
+                console.log(res);
+                if(res !== null) {
+                    setAnswers(res);
+                    setUpdateck(true);
+                }
+                console.log(answers);
+            })
+    },[])
+
+    const sursub = () =>{
+        let a = [answers.answer1-1,answers.answer2-1,answers.answer3-1,answers.answer4-1];
+        // null 값 체크
+        for(let i=0;i<4;i++)
+        {
+            console.log(a[i]);
+            if(a[i] === 5)
+            {
+                alert("모든 질문에 답해주세요.");
+                return;
+            }
+        }
+
+        // tendency_result 값을 얻기 위한 로직
+        let scoreSum = [0,0,0,0];
+        for(let i=0;i<4;i++) {
+            for(let j=0;j<4;j++)
+            {
+                scoreSum[j] += score[i][a[j]][j];
+            }
+        }
+        console.log(scoreSum);
+        let Max = 0;
+        let tendency_result;
+        for(let i=0;i<4;i++){
+            if(scoreSum[i] > Max){
+                Max = scoreSum[i];
+                tendency_result = i;
+            }
+        }
+        answers.tendency_result = tendency_result;
+
+        if(updateCk === false){ // 등록
+            fetch("http://localhost:8087/user/survey",
+                {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8'
+                    },
+                    body: JSON.stringify(answers)
+                })
+                .then((res)=> res.json())
+                .then((res) =>{
+                    if(res === 1)
+                    {
+                        alert("설문지 등록 완료");
+                        window.location.href = "/login";
+                    }else{
+                        alert("등록 실패 다시 시도해 주세요.");
+                    }
+                })
+        }else{  // 수정
+            fetch("http://localhost:8087/user/surveyUpdate",
+                {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8'
+                    },
+                    body: JSON.stringify(answers)
+                })
+                .then((res)=> res.json())
+                .then((res) =>{
+                    if(res === 1)
+                    {
+                        alert("설문지 수정 완료");
+                        window.location.href = "/Mypage";
+                    }else{
+                        alert("수정 실패 다시 시도해 주세요.");
+                    }
+                })
+        }
     }
 
   return (
@@ -32,29 +135,6 @@ const Survey = () => {
             <div className='survey-wrapper'>
                 <div className='question-container'>
                     <div className='question-box'>
-                        <div className='question'>
-                            <div className='question-title'>
-                                <h3>계획을 세울때 나는?</h3>
-                            </div>
-                            <div className='answer-container'>
-                                <label className='answer'>
-                                    <input type="checkbox" name="answer1" checked={answers.answer1 === 1} onClick={()=>{answerCk(1,"answer1")}}/>
-                                    시간 단위로 세세하게 장소와 동선까지 정하고 싶어
-                                </label>
-                                <label className='answer'>
-                                    <input type="checkbox" name="answer1" checked={answers.answer1 === 2} onClick={()=>{answerCk(2,"answer1")}} />
-                                    지역이랑 숙소만 정해놓고 나머지는 여행 중에 정할래
-                                </label>
-                                <label className='answer'>
-                                    <input type="checkbox" name="answer1" checked={answers.answer1 === 3} onClick={()=>{answerCk(3,"answer1")}}/>
-                                    계획 없이 기분에 따라 발길 닿는대로 다니고 싶어
-                                </label>
-                                <label className='answer'>
-                                    <input type="checkbox" name="answer1" checked={answers.answer1 === 4} onClick={()=>{answerCk(4,"answer1")}}/>
-                                    함께하는 사람들이 하자는 데로 할래
-                                </label>
-                            </div>
-                        </div>
 
                         <div className='question'>
                             <div className='question-title'>
@@ -62,20 +142,44 @@ const Survey = () => {
                             </div>
                             <div className='answer-container'>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" checked={answers.answer1 === 1} onClick={()=>{answerCk(1,"answer1")}}/>
                                     이동시간은 최대한 줄이고 관광을 더 하고 싶어
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" checked={answers.answer1 === 2} onClick={()=>{answerCk(2,"answer1")}}/>
                                     천천히 이곳저곳 둘러보며 이동할래
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" checked={answers.answer1 === 3} onClick={()=>{answerCk(3,"answer1")}}/>
                                     이동을 많이 하고 싶지 않아, 움직이는게 싫어
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" checked={answers.answer1 === 4} onClick={()=>{answerCk(4,"answer1")}}/>
                                     이동도 함꼐하면 즐거울거야, 무엇이든 상관없어
+                                </label>
+                            </div>
+                        </div>
+
+                        <div className='question'>
+                            <div className='question-title'>
+                                <h3>이번 여행에서 방문할 장소를 선택할 때 나는?</h3>
+                            </div>
+                            <div className='answer-container'>
+                                <label className='answer'>
+                                    <input type="checkbox" checked={answers.answer2 === 1} onClick={()=>{answerCk(1,"answer2")}}/>
+                                    사람들이 많이 가는 유명한 장소 위주로 다닐래
+                                </label>
+                                <label className='answer'>
+                                    <input type="checkbox" checked={answers.answer2 === 2} onClick={()=>{answerCk(2,"answer2")}}/>
+                                    랜드마크 몇 군데만 가고 나머지는 마음대로 다닐래
+                                </label>
+                                <label className='answer'>
+                                    <input type="checkbox" checked={answers.answer2 === 3} onClick={()=>{answerCk(3,"answer2")}}/>
+                                    아무도 안 가본 새로운 장소를 찾아보고 싶어
+                                </label>
+                                <label className='answer'>
+                                    <input type="checkbox" checked={answers.answer2 === 4} onClick={()=>{answerCk(4,"answer2")}}/>
+                                    함께하는 사람들이 가자는 대로 갈래
                                 </label>
                             </div>
                         </div>
@@ -88,19 +192,19 @@ const Survey = () => {
                             </div>
                             <div className='answer-container'>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" checked={answers.answer3 === 1} onClick={()=>{answerCk(1,"answer3")}}/>
                                     최대한 많은 관광지를 둘러보고 싶어
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" checked={answers.answer3 === 2} onClick={()=>{answerCk(2,"answer3")}}/>
                                     쉬엄쉬엄 여유롭게 구경다니고 싶어
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" checked={answers.answer3 === 3} onClick={()=>{answerCk(3,"answer3")}}/>
                                     구경보다는 편안한 곳에서 느긋하게 힐링하고 싶어
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" checked={answers.answer3 === 4} onClick={()=>{answerCk(4,"answer3")}}/>
                                     같이 가는 사람들이 하자는대로 다닐래
                                 </label>
                             </div>
@@ -108,24 +212,24 @@ const Survey = () => {
 
                         <div className='question'>
                             <div className='question-title'>
-                                <h3>멋진 풍경이 내 눈 앞에 펼쳐졌을 때 나는?</h3>
+                                <h3>내가 더 많은 시간을 보내고 싶은 곳은?</h3>
                             </div>
                             <div className='answer-container'>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
-                                    당연히 풍경사진도, 내 인생샷도 열심히 찍어야지
+                                    <input type="checkbox" checked={answers.answer4 === 1} onClick={()=>{answerCk(1,"answer4")}}/>
+                                    사람이 붐비는 시끌벅적한 곳이야
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
-                                    주변 사람한테 부탁해서 단체사진부터 찍고싶어
+                                    <input type="checkbox" checked={answers.answer4 === 2} onClick={()=>{answerCk(2,"answer4")}}/>
+                                    우리밖에 없느 한적하고 조용한 곳이야
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
-                                    함께 간 사람들의 사진을 찍어줄래
+                                    <input type="checkbox" checked={answers.answer4 === 3} onClick={()=>{answerCk(3,"answer4")}}/>
+                                    그날의 기분에 따라 달라진것 같아
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
-                                    사진을 찍기보다는 그 순간을 내 눈에 담고싶어
+                                    <input type="checkbox" checked={answers.answer4 === 4} onClick={()=>{answerCk(4,"answer4")}}/>
+                                    다같이 있다면 장소의 분위기 상관없이 어디든 좋아
                                 </label>
                             </div>
                         </div>
@@ -158,27 +262,28 @@ const Survey = () => {
 
                         <div className='question'>
                             <div className='question-title'>
-                                <h3>내가 더 많은 시간을 보내고 싶은 곳은?</h3>
+                                <h3>계획을 세울때 나는?</h3>
                             </div>
                             <div className='answer-container'>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
-                                    사람이 붐비는 시끌벅적한 곳이야
+                                    <input type="checkbox" name="answer1" />
+                                    시간 단위로 세세하게 장소와 동선까지 정하고 싶어
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
-                                    우리밖에 없느 한적하고 조용한 곳이야
+                                    <input type="checkbox" name="answer1"  />
+                                    지역이랑 숙소만 정해놓고 나머지는 여행 중에 정할래
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
-                                    그날의 기분에 따라 달라진것 같아
+                                    <input type="checkbox" name="answer1" />
+                                    계획 없이 기분에 따라 발길 닿는대로 다니고 싶어
                                 </label>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
-                                    다같이 있다면 장소의 분위기 상관없이 어디든 좋아
+                                    <input type="checkbox" name="answer1" />
+                                    함께하는 사람들이 하자는 데로 할래
                                 </label>
                             </div>
                         </div>
+
                     </div>
 
                     <div className='question-box'>
@@ -258,32 +363,40 @@ const Survey = () => {
 
                         <div className='question'>
                             <div className='question-title'>
-                                <h3>이번 여행에서 방문할 장소를 선택할 때 나는?</h3>
+                                <h3>멋진 풍경이 내 눈 앞에 펼쳐졌을 때 나는?</h3>
                             </div>
                             <div className='answer-container'>
                                 <label className='answer'>
-                                    <input type="checkbox"/>
-                                    사람들이 많이 가는 유명한 장소 위주로 다닐래
+                                    <input type="checkbox" />
+                                    당연히 풍경사진도, 내 인생샷도 열심히 찍어야지
                                 </label>
                                 <label className='answer'>
                                     <input type="checkbox"/>
-                                    랜드마크 몇 군데만 가고 나머지는 마음대로 다닐래
+                                    주변 사람한테 부탁해서 단체사진부터 찍고싶어
                                 </label>
                                 <label className='answer'>
                                     <input type="checkbox"/>
-                                    아무도 안 가본 새로운 장소를 찾아보고 싶어
+                                    함께 간 사람들의 사진을 찍어줄래
                                 </label>
                                 <label className='answer'>
                                     <input type="checkbox"/>
-                                    함께하는 사람들이 가자는 대로 갈래
+                                    사진을 찍기보다는 그 순간을 내 눈에 담고싶어
                                 </label>
                             </div>
                         </div>
+
                     </div>
                     <div className='survey-submit-btn'>
-                        <button>
-                            설문지 제출
-                        </button>
+                        {updateCk === true
+                            ?
+                            <button onClick={sursub}>
+                                설문지 수정
+                            </button>
+                            :
+                            <button onClick={sursub}>
+                                설문지 제출
+                            </button>
+                        }
                     </div>
                 </div>
             </div>

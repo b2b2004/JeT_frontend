@@ -8,7 +8,6 @@ const UserCourse = (props) => {
     let img = props.courseList.imgUrl.split(',')[0];
     img = img.substring(2,img.length-1);
   return (
-    <ul className='uc-all'>
         <li>
             <div className='uc-container'>
                 <div className='uc-wrap'>
@@ -82,7 +81,6 @@ const UserCourse = (props) => {
                 </div>
             </div>
         </li>
-    </ul>
   )
 }
 

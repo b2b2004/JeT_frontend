@@ -72,7 +72,7 @@ function Regist(){
                 .then((res)=> res.text())
                 .then((res) =>{
                   alert(res);
-                  window.location.href = "/login";
+                  window.location.href = "/survey/"+ data.userId;
                 })
           }else if(res === "2"){
             alert("아이디가 이미 존재합니다.");

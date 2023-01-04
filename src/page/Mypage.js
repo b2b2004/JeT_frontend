@@ -1,15 +1,23 @@
 import React, {useEffect, useState} from 'react'
 import Navbar from '../component/nav/Navbar'
 import { BiChevronsUp , BiChevronsRight} from "react-icons/bi";
-
 import './css/mypage.css'
 import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
-import * as events from "events";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import Card from "../component/card/Card";
+import Sdfasdf from "../component/card/Sdfasdf";
 
 function Mypage() {
     const [user,setUser] = useState({});
+    const [userlikeplace,setUserlikeplace] = useState([]);
     const Authorization = localStorage.getItem("Authorization");
     const [info, setInfo] = useState({
         email: ''
@@ -19,29 +27,6 @@ function Mypage() {
         password2: '',
         password3: ''
     });
-
-    const[emp, setemp] = useState({
-        keyword: ["0","1","2"]
-    })
-
-    const aaa = (e) =>{
-        e.preventDefault();
-        console.log(emp.keyword);
-
-        fetch(
-            'http://localhost:5000/tour_course', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                },
-                body: JSON.stringify(emp)
-            }
-        )
-            .then((res) => res.json())
-            .then((res) => {
-                console.log(res);
-            })
-    }
 
     useEffect(()=>{
         fetch(
@@ -61,6 +46,21 @@ function Mypage() {
                 console.log(res);
                 setUser(res);
             })
+
+        fetch(
+            'http://localhost:8087/user/mypagelikePlace', {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8', Authorization
+                },
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                setUserlikeplace(res);
+            })
+
     }, [])
 
     const chageInfo = (e) => {
@@ -180,6 +180,7 @@ function Mypage() {
                 }
             })
     }
+
   return (
     <div className='page-scroll-lock'>
     <div className='fix'>
@@ -196,13 +197,26 @@ function Mypage() {
                             <div className='place_course-like'>
                                 <h3>관광지 😍</h3>
                                 <div className='place-like'>
-
-                                    <button onClick={aaa}>테스트 돼라 시발 </button>
-                                    뭐로 보여주지
+                                    <Swiper
+                                        // install Swiper modules
+                                        modules={[Navigation, Pagination, Scrollbar, A11y]}
+                                        spaceBetween={50}
+                                        slidesPerView={3}
+                                        navigation
+                                        pagination={{ clickable: true }}
+                                        scrollbar={{ draggable: true }}
+                                        onSwiper={(swiper) => console.log(swiper)}
+                                        onSlideChange={() => console.log('slide change')}
+                                    >
+                                        {userlikeplace.map((userlikeplace) => (
+                                            <Sdfasdf key={userlikeplace.user_like_num} userlikeplace={userlikeplace} />
+                                        ))}
+                                    </Swiper>
                                 </div>
                                 <hr/>
                                 <h3>코스 😎</h3>
                                 <div className='course-like'>
+
                                     그러게
                                 </div>
                             </div>
@@ -230,7 +244,7 @@ function Mypage() {
                         <BiChevronsRight color="000" size="25"/></a>
                         <a href='#change_pw'>비밀번호 변경 
                         <BiChevronsRight color="000" size="25"/></a>
-                        <a href='#change_pi'>성향정보 변경 
+                        <a onClick={()=>{window.location.href ="/survey/" + user.userId}}>성향정보 변경
                         <BiChevronsRight color="000" size="25"/></a>
                     </div>
                     <div className='scroll_top_btn'>
@@ -277,7 +291,7 @@ function Mypage() {
                     <div className='scroll_btns'>
                         <a href='#change_pw'>비밀번호 변경  
                         <BiChevronsRight color="000" size="25"/></a>
-                        <a href='#change_pi'>성향정보 변경  
+                        <a href='' onClick={()=>{window.location.href ="/survey/" + user.userId}}>성향정보 변경
                         <BiChevronsRight color="000" size="25"/></a>
                     </div>
                 </form>
@@ -329,35 +343,9 @@ function Mypage() {
                     <div className='scroll_btns'>
                         <a href='#change_ui'>개인정보 변경 
                         <BiChevronsRight color="000" size="25"/></a>
-                        <a href='#change_pi'>성향정보 변경  
+                        <a onClick={()=>{window.location.href ="/survey/" + user.userId}}>성향정보 변경
                         <BiChevronsRight color="000" size="25"/></a>
                     </div>
-                    <div className='scroll_top_btn'>
-                        <a href="#user_info">
-                            <BiChevronsUp color="#fff" size="30"/>
-                        </a>
-                    </div>
-            </div>
-        </section>
-
-        <section className='section' id='change_pi'>
-            <div className='section-form'>
-                <form>
-                    <div className='section-title'>
-                        <h2>성향정보 변경</h2>
-                    </div>
-                    <div className='section-container'>
-                        <div className='pesonal-change'>
-                        </div>
-                        
-                    </div>
-                    <div className='scroll_btns'>
-                        <a href='#change_ui'>개인정보 변경 
-                        <BiChevronsRight color="000" size="25"/></a>
-                        <a href='#change_pw'>비밀번호 변경 
-                        <BiChevronsRight color="000" size="25"/></a>
-                    </div>
-                </form>
                     <div className='scroll_top_btn'>
                         <a href="#user_info">
                             <BiChevronsUp color="#fff" size="30"/>
