@@ -1,11 +1,12 @@
 import styles from "./HouseAndFoodModal.module.css";
 import FoodModal from "./FoodModal";
+import HouseModal from "./HouseModal"
 
 
 const HouseAndFoodMadal = ({handleClose}, props) =>{
 
     const renderByRecommendCourseStep = () => {
-         return <FoodModal />
+         return <HouseModal />
         // 숙박 디자인 하고 싶으면 바꾸고 return <HouseModal />
     };
     return (
