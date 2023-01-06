@@ -8,7 +8,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import storage from 'redux-persist/lib/storage';
 import RecommendCourseStepReducer from './store/RecommendCourseStep';
-
+import FoodStoreStepReducer from './store/FoodStoreStep';
+import AccommodationStep from './store/AccommodationStep';
 import { createRoot } from 'react-dom/client';
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -16,6 +17,8 @@ const root = createRoot(container);
 
 const reducers = combineReducers({
     RecommendCourseStep: RecommendCourseStepReducer,
+    FoodStoreStep: FoodStoreStepReducer,
+    AccommodationStep: AccommodationStep
 });
 
 const persistConfig = {

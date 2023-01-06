@@ -4,10 +4,12 @@ import Navbar from '../component/nav/Navbar'
 import './css/survey.css'
 import login from "./Login";
 import {useParams} from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Survey = () => {
 
     const [updateCk ,setUpdateck] = useState(false);
+    const Authorization = localStorage.getItem("Authorization");
     const params = useParams();
     const [answers, setAnswers] = useState({
         answer1: 5,
@@ -23,6 +25,7 @@ const Survey = () => {
         [[0,4,0,0],[2,0,2,2],[0,0,0,0],[3,3,3,3]],
         [[0,0,5,0],[0,0,0,5],[0,0,0,0],[3,0,3,3]]]
     );
+
     function answerCk(value, name){
         setAnswers({
             ...answers,
@@ -43,10 +46,11 @@ const Survey = () => {
             .then((res)=> res.json())
             .then((res) =>{
                 console.log(res);
-                if(res !== null) {
+                if(res !== "") {
                     setAnswers(res);
                     setUpdateck(true);
                 }
+                console.log(updateCk);
                 console.log(answers);
             })
     },[])
@@ -64,15 +68,14 @@ const Survey = () => {
             }
         }
 
-        // tendency_result 값을 얻기 위한 로직
         let scoreSum = [0,0,0,0];
         for(let i=0;i<4;i++) {
             for(let j=0;j<4;j++)
             {
-                scoreSum[j] += score[i][a[j]][j];
+                scoreSum[j] += score[i][a[i]][j];
             }
+            console.log(scoreSum);
         }
-        console.log(scoreSum);
         let Max = 0;
         let tendency_result;
         for(let i=0;i<4;i++){
@@ -83,6 +86,7 @@ const Survey = () => {
         }
         answers.tendency_result = tendency_result;
 
+        console.log(answers.tendency_result);
         if(updateCk === false){ // 등록
             fetch("http://localhost:8087/user/survey",
                 {
@@ -96,10 +100,19 @@ const Survey = () => {
                 .then((res) =>{
                     if(res === 1)
                     {
-                        alert("설문지 등록 완료");
-                        window.location.href = "/login";
+                        Swal.fire({icon: 'success', title: '설문지 등록 완료'}).then(()=>{
+                                if(Authorization !== null)
+                                {
+                                    window.location.href = "/";
+                                }else{
+                                    window.location.href = "/login";
+                                }
+                        }
+
+                        );
+
                     }else{
-                        alert("등록 실패 다시 시도해 주세요.");
+                        Swal.fire({icon: 'error', title: '등록 실패 다시 시도해 주세요.'})
                     }
                 })
         }else{  // 수정
@@ -115,10 +128,9 @@ const Survey = () => {
                 .then((res) =>{
                     if(res === 1)
                     {
-                        alert("설문지 수정 완료");
-                        window.location.href = "/Mypage";
+                        Swal.fire({icon: 'success', title: '설문지 수정 완료'}).then(()=>{ window.location.href = "/Mypage";});
                     }else{
-                        alert("수정 실패 다시 시도해 주세요.");
+                        Swal.fire({icon: 'error', title: '수정 실패 다시 시도해 주세요.'});
                     }
                 })
         }

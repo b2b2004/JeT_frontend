@@ -24,7 +24,7 @@ function App() {
           <Route path='/regist' element={<Regist/>} />
           <Route path='/category' element={<Category/>} />
           <Route path='/map' element={<Map/>}/>
-          <Route path='/Oauth2Login/:token' element={<Oauth2Login/>}/>
+          <Route path='/Oauth2Login/:token/:userId' element={<Oauth2Login/>}/>
           <Route path="/FindPw" element={<FindPw/>}/>
           <Route path="/Mypage" element={<MyPage/>}/>
           <Route path="/Course/:num" element={<Course/>}/>

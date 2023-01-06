@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import Logo from "../assert/logo.png";
 import '../page/css/findpw.css'
 import {useState} from "react";
+import Swal from "sweetalert2";
 function  FindPw(){
 
     const [user,setUser] = useState({
@@ -31,8 +32,7 @@ function  FindPw(){
             })
             .then((res)=> res.text())
             .then((res) =>{
-                alert(res);
-                window.location.href = "/login";
+                Swal.fire({icon: 'info', title: res}).then(()=>{window.location.href = "/login";});
             })
     }
 

@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PlaceReview from "../component/jejuplace/PlaceReview";
+import Swal from "sweetalert2";
 
 function JeJuPlace(){
 
@@ -139,16 +140,13 @@ function JeJuPlace(){
             .then((res) =>{
                 if(res === 1)
                 {
-                    alert("리뷰 등록 성공");
-                    location.reload();
+                    Swal.fire({icon: 'success', title: '리뷰 등록 성공'}).then(()=>{window.location.reload();});
                 }else if(res === 2)
                 {
-                    alert("리뷰 등록 실패");
-                    location.reload();
+                    Swal.fire({icon: 'error', title: '리뷰 등록 실패'}).then(()=>{window.location.reload();});
                 }else if(res === 3)
                 {
-                    alert("로그인 상태가 아닙니다.");
-                    window.location.href = "/login";
+                    Swal.fire({icon: 'warning', title: '로그인 상태가 아닙니다.'}).then(()=>{ window.location.href = "/login";});
                 }
             })
     }
@@ -176,7 +174,7 @@ function JeJuPlace(){
                 <div className="dbDetail titBg" id="topCp">
                     <div className="titTypeWrap">
                         <h3>
-                            <em>걸출한 일출 포인트</em>
+                            <em>{jejuData.tags}</em>
                         </h3>
                     </div>
                 </div>

@@ -8,6 +8,8 @@ import Card from "../component/card/Card"
 import hreoBg from "../assert/travel_bgr.png"
 import './css/catedetail.css';
 import { Link } from 'react-router-dom';
+import Swal from "sweetalert2";
+
 
 function CateDetail() {
     const dispatch = useDispatch();
@@ -26,8 +28,7 @@ function CateDetail() {
     const openModal = () => {
         if(Authorization === null)
         {
-            alert("로그인 후 이용 가능 합니다.");
-            window.location.href = "/login";
+            Swal.fire({icon: 'error', title: '로그인 후 이용 가능 합니다.'}).then(()=>{window.location.href = "/login";});
         }
         document.body.style.overflow = "hidden";
         dispatch(setModalVisible(true));

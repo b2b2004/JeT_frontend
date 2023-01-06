@@ -5,6 +5,7 @@ import "./navbar.css"
 import Logo from "../../assert/logo.png"
 
 import { FiLogIn } from "react-icons/fi";
+import Swal from "sweetalert2";
 
 function Navbar() {
 
@@ -37,8 +38,7 @@ function Navbar() {
 
     const Logout = () =>{
         localStorage.clear();
-        alert("로그아웃 되었습니다.");
-        window.location.href = "/";
+        Swal.fire({icon: 'success', title: '로그아웃'}).then(()=>{window.location.href = "/";});
     }
 
     const Mypage = () =>{

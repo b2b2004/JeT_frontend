@@ -2,24 +2,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     width: 100%;
     height: 100%;
-
     box-sizing: border-box;
 }
 
 .store_name{
     font-size: 26px;
-    padding: 40px 20px;
+    padding: 15px 20px 0 20px;
+    background: linear-gradient(to top, #ffff9e 10%, transparent 40%);
+}
+.house_category_bar{
+    display: flex;
+    justify-content: flex-end;
 }
 
 .house_category{
     width: 800px;
     font-size: 18px;
-    padding: 18px 30px;
+    padding: 5px 30px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .house_info{
@@ -47,7 +50,11 @@
     margin-top: 20px;
 }
 
-.house_img h3{
-    padding: 15px 0;
-    font-size: 23px;
+.house_img img{
+    width: 550px;
+    height: 370px;
+}
+
+.p_t{
+    width: 90px;
 }

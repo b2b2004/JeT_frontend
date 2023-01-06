@@ -1,13 +1,20 @@
 import styles from "./HouseAndFoodModal.module.css";
 import FoodModal from "./FoodModal";
 import HouseModal from "./HouseModal"
+import {useSelector} from "react-redux";
 
+const FIRST = 1;
+const SECOND = 2;
 
-const HouseAndFoodMadal = ({handleClose}, props) =>{
-
-    const renderByRecommendCourseStep = () => {
-         return <HouseModal />
-        // 숙박 디자인 하고 싶으면 바꾸고 return <HouseModal />
+const HouseAndFoodMadal = ({handleClose},props) =>{
+    const CourseModalStep = useSelector((state) => state.FoodStoreStep.currentStep);
+    const renderByRecommendCourseStep = (CourseModalStep) => {
+        switch (CourseModalStep) {
+            case FIRST:
+                return <FoodModal />;
+            case SECOND:
+                return <HouseModal handleClose={handleClose}></HouseModal>;
+        }
     };
     return (
         <div className={styles.wrapper}>
@@ -27,7 +34,7 @@ const HouseAndFoodMadal = ({handleClose}, props) =>{
                     </svg>
                 </div>
             </div>
-            <div className={styles.modalContent}>{renderByRecommendCourseStep()}</div>
+            <div className={styles.modalContent}>{renderByRecommendCourseStep(CourseModalStep)}</div>
         </div>
     );
 

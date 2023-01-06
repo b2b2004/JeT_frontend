@@ -1,29 +1,30 @@
-import asdf from '../../assert/forest_sa.jpg'
 import './foodModal.css'
-
+import {useSelector} from "react-redux";
 
 
 function FoodModal(){
-
+    const FoodData = useSelector((state) => state.FoodStoreStep);
     return<>
         <div className="food_modal">
-            <div className='store_name'>
-                <h2>음식점 이름</h2>
-            </div>
+                <div className='store_name'>
+                    <h2>{FoodData.store_name}</h2>
+                </div>
+                <div className='food_category_bar'>
+                    <p className="p_t">별점:</p><p> {FoodData.star} / 5.0</p>
+                </div>
+                <div className="food_img">
+                    <img src={FoodData.foodimg_src} alt='foodImg'/>
+                </div>
             <div className="food_store_container">
                 <div className='food_category'>
-                    <p>음식 카테고리</p>
+                    <p className="p_t">주소:</p><p> {FoodData.address}</p>
                 </div>
-            </div>
-            <div className='food_store_info'>
-                <div className='info_input'>
-                    <label>Phone</label>
-                    <input type="text" disabled></input>
+                <div className='food_category'>
+                    <p className="p_t">카테고리:</p><p> {FoodData.category}</p>
                 </div>
-            </div>
-            <div className="food_img">
-                <h3>대표 메뉴</h3>
-                <img src={asdf} alt='foodImg'/>
+                <div className='food_category'>
+                    <p className="p_t">phone:</p><p> {FoodData.phone}</p>
+                </div>
             </div>
         </div>
     </>

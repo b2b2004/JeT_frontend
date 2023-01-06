@@ -5,6 +5,7 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import '../page/css/regist.css'
 import Logo from "../assert/logo.png"
+import Swal from "sweetalert2";
 
 function Regist(){
 
@@ -71,13 +72,12 @@ function Regist(){
                 })
                 .then((res)=> res.text())
                 .then((res) =>{
-                  alert(res);
-                  window.location.href = "/survey/"+ data.userId;
+                    Swal.fire({icon: 'warning', title: res}).then(()=>{window.location.href = "/survey/"+ data.userId;})
                 })
           }else if(res === "2"){
-            alert("아이디가 이미 존재합니다.");
+              Swal.fire({icon: 'warning', title: '아이디가 이미 존재합니다.'});
           }else{
-            alert("데이터 베이스 오류");
+              Swal.fire({icon: 'error', title: '데이터 베이스 오류'});
           }
 
         })

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from "react-router-dom";
-
+import Swal from "sweetalert2";
 import './css/login.css'
 import Logo from "../assert/logo.png"
 import kakao from "../assert/kakao.png"
@@ -24,9 +24,6 @@ function Login() {
 
   const SignInSummit = (e)=>{
     e.preventDefault();
-
-    console.log(user);
-
     fetch("http://localhost:8087/login",
         {
           method: "POST",
@@ -38,14 +35,12 @@ function Login() {
         .then()
         .then((res) =>{
             if(res.status === 401){
-                alert("아이디 또는 비밀번호를 잘못 입력했습니다.");
-                window.location.href = "/login";
+                Swal.fire({icon: 'error', title: '아이디 또는 비밀번호를 잘못 입력하셨습니다.'}).then(()=>{window.location.href = "/login";});
             }
             else{
                 let jwtToken = res.headers.get("Authorization");
                 localStorage.setItem("Authorization", jwtToken);
-                alert("로그인 완료");
-                window.location.href = "/";
+                Swal.fire({icon: 'success', title: '로그인 성공'}).then(()=>{window.location.href = "/";});
             }
         })
   }
@@ -84,17 +79,19 @@ function Login() {
                   <button>로그인</button>
                 </div>
                 <hr/>
-                <div className='social-btn'>
-                    <button className='ka-btn' name="kakao" onClick={Oauth2Login}>
-                        <img className='ka-logo' src={kakao} alt="k-logo"/>
-                        KAKAO
-                    </button>
-                    <button className='na-btn' name="naver" onClick={Oauth2Login}>
-                        <img className='na-logo' src={naver} alt="n-logo"/>
-                        NAVER
-                    </button>
-                </div>
               </form>
+                <div id="social-loginForm">
+                    <div className='social-btn'>
+                        <button className='ka-btn' name="kakao" onClick={Oauth2Login}>
+                            <img className='ka-logo' src={kakao} alt="k-logo"/>
+                            KAKAO
+                        </button>
+                        <button className='na-btn' name="naver" onClick={Oauth2Login}>
+                            <img className='na-logo' src={naver} alt="n-logo"/>
+                            NAVER
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

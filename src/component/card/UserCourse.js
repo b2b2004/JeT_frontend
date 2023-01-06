@@ -4,7 +4,8 @@ import ima from "../../assert/forest_sa.jpg";
 import {BiDotsVertical, BiLaugh, BiPlusCircle} from "react-icons/bi";
 
 const UserCourse = (props) => {
-    const {name1,name2,name3,name4,name5,name6,name7} = props.courseList;
+    console.log(props);
+    const {name1,name2,name3,name4,name5,name6,name7, userId} = props.courseList;
     let img = props.courseList.imgUrl.split(',')[0];
     img = img.substring(2,img.length-1);
   return (
@@ -15,23 +16,9 @@ const UserCourse = (props) => {
                         <img src={img}/>
                     </div>
                     <div className='uc-text'>
-                        <div className='uc-sub'>
-                            <div><BiLaugh size='20'/></div>
-                            <div>
-                                <input id="dropdown" type="checkbox"/>
-                                <label className="dropdownLabel" htmlFor="dropdown">
-                                    <BiDotsVertical size='20'/>
-                                </label>
-                                <div className="dropdown-content">
-                                    <ul>
-                                        <li>수정</li>
-                                        <li>삭제</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <div><BiLaugh size='20'/></div>
                         <div className='uc-text-title'>
-                            <h2>사용자 추천 코스</h2>
+                            <h3>{userId}님 추천 코스</h3>
                         </div>
                         <div className='uc-course'>
                             <h6>경유지</h6>
@@ -50,10 +37,12 @@ const UserCourse = (props) => {
                                             <BiPlusCircle size='12'/>
                                             <p>{name3}</p>
                                         </div>
-                                        <div className='waypoint'>
-                                            <BiPlusCircle size='12'/>
-                                            <p>{name4}</p>
-                                        </div>
+                                        {name4 !== undefined ?
+                                            <div className='waypoint'>
+                                                <BiPlusCircle size='12'/>
+                                                <p>{name4}</p>
+                                            </div> :
+                                            <></>}
                                         {name5 !== undefined ?
                                             <div className='waypoint'>
                                                 <BiPlusCircle size='12'/>

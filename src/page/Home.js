@@ -23,7 +23,7 @@ function Home() {
                   <button id='cate-btn'>CATEGORY</button>
                 </Link>
                 <Link to='/courseDetail'>
-                  <button id='map-btn'>Course</button>
+                  <button id='cate-btn'>Course</button>
                 </Link>
                 <Link to='/map'>
                   <button id='map-btn'>MAP</button>

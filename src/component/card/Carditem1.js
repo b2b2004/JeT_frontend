@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-function Carditem(props) {
+function Carditem1(props) {
     const place = props.text;
     const Authorization = localStorage.getItem("Authorization");
     const [likeplace, setLikeplace] = useState(false);
@@ -48,26 +48,26 @@ function Carditem(props) {
         }
     },[])
 
-  return (
-    <>
-      <li className='card_item'>
-        <div className='card_item_link'>
-            <div onClick={()=>{window.location.href = "/Jejuplace/" + props.path;}}>
-            <figure className='card_item_pic-wrap' data-category={props.label}>
-                <img className='card_item_img' alt='Travel Img'
-                src={props.src}/>
-            </figure>
-            </div>
-            <div className='card_item_info'>
-                <div className='like_place'>
-                {Authorization !== null ? ( likeplace === false ? <p onClick={user_like_place}><div><img src="/images/hea.png" /></div></p> :<p onClick={user_like_place}><div><img src="/images/hea2.png" /></div></p>) :<></> }
+    return (
+        <>
+            <li className='card_item1'>
+                <div className='card_item1_link'>
+                    <div onClick={()=>{window.location.href = "/Jejuplace/" + props.path;}}>
+                        <figure className='card_item1_pic-wrap' data-category={props.label}>
+                            <img className='card_item1_img' alt='Travel Img'
+                                 src={props.src}/>
+                        </figure>
+                    </div>
+                    <div className='card_item1_info'>
+                        <div className='like_place'>
+                            {Authorization !== null ? ( likeplace === false ? <p onClick={user_like_place}><div><img src="/images/hea.png" /></div></p> :<p onClick={user_like_place}><div><img src="/images/hea2.png" /></div></p>) :<></> }
+                        </div>
+                        <h5 className='card_item1_text'>{place}</h5>
+                    </div>
                 </div>
-                <h5 className='card_item_text'>{place}</h5>
-            </div>
-        </div>
-      </li>
-    </>
-  )
+            </li>
+        </>
+    )
 }
 
-export default Carditem
+export default Carditem1

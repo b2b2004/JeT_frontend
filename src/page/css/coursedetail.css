@@ -37,13 +37,25 @@
 
 .uc-btn{
     background-color: #fff;
-
     margin-right: 9px;
     padding: 7px 45px;
     border: none;
-    border-bottom: 2px solid #ddd;
-
     font-size: 14px;
+}
+
+.uc-btn:hover{
+    border-bottom: 2px solid black;
+    margin-bottom: -2px;
+}
+
+.uc1-btn{
+    background-color: #fff;
+    margin-right: 9px;
+    padding: 7px 45px;
+    border: none;
+    font-size: 14px;
+    border-bottom: 2px solid #ffe58e;
+    margin-bottom: -2px;
 }
 
 .uc-all{

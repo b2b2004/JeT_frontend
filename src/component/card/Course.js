@@ -7,6 +7,7 @@ import Modal from "../modal/Modal";
 import CourseModal from "../modal/CourseModal";
 import HouseAndFoodModal from "../modal/HouseAndFoodModal";
 
+
 const Course = (props) => {
 
 

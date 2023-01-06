@@ -9,20 +9,40 @@
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/card/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/Carditem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Carditem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/Course.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/Courseitem.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/MypageCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/MypageCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/Sdfasdf.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/card/UserCourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/UserCourse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/course.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/card/mypagecard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/mypagecard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/card/usercorse.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/card/usercorse.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modal/FirstModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/FirstModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modal/HouseAndFoodModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/HouseAndFoodModal.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modal/SecondModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/SecondModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/ThirdModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/jejuplace/PlaceReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/jejuplace/PlaceReview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/jejuplace/placereview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/jejuplace/placereview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/FoodModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/FoodModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/HouseAndFoodModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/HouseAndFoodModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/HouseModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/HouseModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/foodModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/foodModal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modal/houseModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modal/houseModal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/nav/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/nav/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/CateDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CateDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/CourseDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CourseDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/CourseRec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/CourseRec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/FindPw.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/FindPw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/JeJuPlace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/JeJuPlace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/Mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Mypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Oauth2Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Oauth2Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/Regist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Regist.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/Survey.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Survey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/css/catedetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/catedetail.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/css/coursedetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/coursedetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/css/courserec.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/courserec.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/css/mypage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/RecommendCourseStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/RecommendCourseStep.js" afterDir="false" />
     </list>
@@ -58,7 +78,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SJY/SJY-frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/component/modal" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -68,6 +88,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspace\springbootwork\JeT_frontend\src\component\modal" />
       <recent name="C:\workspace\springbootwork\JeT_frontend\public\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -120,6 +141,11 @@
       <workItem from="1672707315390" duration="2587000" />
       <workItem from="1672712858742" duration="486000" />
       <workItem from="1672716269739" duration="14079000" />
+      <workItem from="1672790527768" duration="32406000" />
+      <workItem from="1672877565550" duration="12664000" />
+      <workItem from="1672923453645" duration="339000" />
+      <workItem from="1672963245536" duration="4744000" />
+      <workItem from="1672969113872" duration="12583000" />
     </task>
     <servers />
   </component>

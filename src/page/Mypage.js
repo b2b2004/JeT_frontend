@@ -5,15 +5,10 @@ import './css/mypage.css'
 import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import Card from "../component/card/Card";
-import Sdfasdf from "../component/card/Sdfasdf";
+import Slider from "react-slick";
+
+import MypageCard from "../component/card/MypageCard";
+import Swal from "sweetalert2";
 
 function Mypage() {
     const [user,setUser] = useState({});
@@ -57,8 +52,8 @@ function Mypage() {
         )
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
                 setUserlikeplace(res);
+                console.log(res);
             })
 
     }, [])
@@ -81,16 +76,13 @@ function Mypage() {
                 if(res.status === 500)
                 {
                     localStorage.clear();
-                    alert("로그인 시간이 만료 되었습니다.");
-                    window.location.href = "/";
+                    Swal.fire({icon: 'warning', title: '로그인 시간이 만료 되었습니다.'}).then(()=>{ window.location.href = "/";});
                 }
                 if(res === 1)
                 {
-                    alert("회원정보 수정 완료");
-                    window.location.href = "/Mypage";
+                    Swal.fire({icon: 'success', title: '회원정보 수정 완료'}).then(()=>{ window.location.href = "/Mypage";});
                 }else{
-                    alert("회원정보 수정 실패");
-                    window.location.href = "/";
+                    Swal.fire({icon: 'error', title: '회원정보 수정 실패'}).then(()=>{ window.location.href = "/";});
                 }
             })
     }
@@ -151,7 +143,7 @@ function Mypage() {
                 console.log(res);
                 if(res === 3)
                 {
-                    alert("현재 비밀번호가 일치하지 않습니다.");
+                    Swal.fire({icon: 'error', title: '현재 비밀번호가 일치하지 않습니다.'});
                 }else{
                     chagepw();
                 }
@@ -171,16 +163,41 @@ function Mypage() {
             .then((res) => {
                 if(res === 1)
                 {
-                    alert("비밀번호 번경 성공");
                     localStorage.clear();
-                    window.location.href = "/login";
-
+                    Swal.fire({icon: 'success', title: '비밀번호 번경 성공'}).then(()=>{ window.location.href = "/login";});
                 }else if(res === 2){
-                    alert("비밀번호 번경 실패");
+                    Swal.fire({icon: 'error', title: '비밀번호 변경 실패'});
                 }
             })
     }
 
+    const courseMove = () =>{
+        fetch('http://localhost:8087/course/newestMyCourse', {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8', Authorization
+                }
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                if(res == 0){
+                    Swal.fire({icon: 'question', title: '추천 받은 코스가 없습니다.'});
+                }else{
+                    window.location.href = "/course/" + res;
+                }
+            })
+    }
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3
+    };
+
+    console.log(userlikeplace.length);
   return (
     <div className='page-scroll-lock'>
     <div className='fix'>
@@ -197,27 +214,20 @@ function Mypage() {
                             <div className='place_course-like'>
                                 <h3>관광지 😍</h3>
                                 <div className='place-like'>
-                                    <Swiper
-                                        // install Swiper modules
-                                        modules={[Navigation, Pagination, Scrollbar, A11y]}
-                                        spaceBetween={50}
-                                        slidesPerView={3}
-                                        navigation
-                                        pagination={{ clickable: true }}
-                                        scrollbar={{ draggable: true }}
-                                        onSwiper={(swiper) => console.log(swiper)}
-                                        onSlideChange={() => console.log('slide change')}
-                                    >
+                                    <Slider {...settings}>
                                         {userlikeplace.map((userlikeplace) => (
-                                            <Sdfasdf key={userlikeplace.user_like_num} userlikeplace={userlikeplace} />
+                                            <div>
+                                                <MypageCard key={userlikeplace.user_like_num} userlikeplace={userlikeplace} />
+                                            </div>
                                         ))}
-                                    </Swiper>
+                                        <div></div>
+                                        <div></div>
+                                    </Slider>
                                 </div>
                                 <hr/>
                                 <h3>코스 😎</h3>
                                 <div className='course-like'>
-
-                                    그러게
+                                    <h2 onClick={courseMove}>최근 추천 받은 코스로 이동하기</h2>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +301,7 @@ function Mypage() {
                     <div className='scroll_btns'>
                         <a href='#change_pw'>비밀번호 변경  
                         <BiChevronsRight color="000" size="25"/></a>
-                        <a href='' onClick={()=>{window.location.href ="/survey/" + user.userId}}>성향정보 변경
+                        <a onClick={()=>{window.location.href ="/survey/" + user.userId}}>성향정보 변경
                         <BiChevronsRight color="000" size="25"/></a>
                     </div>
                 </form>
